@@ -1,622 +1,239 @@
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>נועם עבודות חשמל | חשמלאי מוסמך</title>
-  <meta name="description" content="נועם עבודות חשמל – תקלות, לוחות, נקודות, תאורה, תלת פאזי, עמדות טעינה. התקשרו: 051-271-5252" />
-  <meta name="theme-color" content="#0b1f4b" />
+<title>נועם עבודות חשמל | חשמלאי מוסמך בירושלים והסביבה</title>
+<meta name="description" content="נועם עבודות חשמל – שירות מהיר, מקצועי ואמין. תקלות, לוחות חשמל, תאורה, תלת פאזי ועמדות טעינה לרכב חשמלי." />
+<meta name="theme-color" content="#1e5bff" />
 
-  <meta property="og:title" content="נועם עבודות חשמל" />
-  <meta property="og:description" content="שירותי חשמל: תקלות, לוחות, תאורה, תלת פאזי ועמדות טעינה. זמינות גבוהה ואחריות." />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="he_IL" />
-  <meta property="og:image" content="logo.png" />
+<link rel="icon" href="favicon.ico" />
 
-  <link rel="icon" href="favicon.ico" />
+<style>
+:root{
+  --bg:#f5f8ff;
+  --card:#ffffff;
+  --card2:#eef3ff;
+  --text:#0b1b3a;
+  --muted:#4a5d8a;
+  --line:rgba(11,27,58,.12);
 
-  <style>
-    :root{
-      /* צבעים: כחול / לבן / צהוב בלבד */
-      --blue-900:#071633;
-      --blue-800:#0b1f4b;
-      --blue-700:#102a63;
-      --blue-100:#eaf1ff;
+  --accent:#f6c31b;
+  --accent2:#1e5bff;
+  --shadow: 0 14px 40px rgba(11,27,58,.18);
+  --radius:18px;
+}
 
-      --white:#ffffff;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: system-ui, Arial, sans-serif;
+  color:var(--text);
+  background: linear-gradient(180deg,#ffffff,#eef3ff);
+}
 
-      --yellow:#f6c31b;
-      --yellow-2:#ffd75a;
+a{text-decoration:none;color:inherit}
+.container{width:min(1100px,92vw);margin:auto}
 
-      --text:#0b1f4b;
-      --muted:#2e4a86;
+/* TOP */
+.top{
+  position:sticky;top:0;z-index:50;
+  background:#ffffffee;
+  border-bottom:1px solid var(--line);
+}
+.top-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:12px 0;gap:14px;
+}
+.brand{display:flex;gap:12px;align-items:center}
+.brand img{width:46px;height:46px;border-radius:50%}
+.actions{display:flex;gap:10px}
+.btn{
+  padding:10px 14px;
+  border-radius:999px;
+  border:1px solid var(--line);
+  background:#fff;
+  font-weight:700;
+}
+.btn.primary{
+  background:linear-gradient(135deg,#f6c31b,#ffd85e);
+  border:none;
+}
 
-      --line: rgba(11,31,75,.14);
-      --shadow: 0 18px 45px rgba(7,22,51,.18);
-      --radius: 18px;
-    }
+/* BANNER */
+.main-banner{
+  background:linear-gradient(135deg,#1e5bff,#0b1b3a);
+  color:#fff;
+  padding:60px 0;
+}
+.banner-inner{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:30px;
+  align-items:center;
+}
+.banner-inner h1{
+  font-size:clamp(30px,4vw,46px);
+  margin:0 0 12px;
+}
+.banner-inner p{
+  font-size:18px;
+  color:#e9efff;
+  line-height:1.6;
+}
+.banner-actions{display:flex;gap:12px;margin-top:20px}
+.banner-box{
+  background:#fff;
+  color:#0b1b3a;
+  padding:22px;
+  border-radius:18px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Hebrew", sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(1100px 520px at 85% -10%, rgba(16,42,99,.20), transparent 60%),
-        radial-gradient(900px 520px at 15% 10%, rgba(246,195,27,.18), transparent 55%),
-        linear-gradient(180deg, var(--blue-100), #ffffff 60%, var(--blue-100));
-      overflow-x:hidden;
-    }
+/* SECTIONS */
+section{padding:40px 0}
+.section-title h2{margin:0 0 6px}
+.section-title p{margin:0;color:var(--muted)}
 
-    a{color:inherit}
-    .container{width:min(1100px, 92vw); margin:0 auto}
+.grid3{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+}
+.card{
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:18px;
+  box-shadow:var(--shadow);
+}
+.card h3{margin:0 0 6px}
 
-    /* Top bar */
-    .top{
-      position:sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.82);
-      border-bottom:1px solid var(--line);
-    }
-    .top-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      gap:14px; padding:12px 0;
-    }
-    .brand{
-      display:flex; align-items:center; gap:12px; min-width:0;
-    }
-    .brand img{
-      width:42px; height:42px; border-radius:14px;
-      border:1px solid var(--line);
-      background: var(--white);
-      object-fit:cover;
-      box-shadow: 0 10px 25px rgba(7,22,51,.12);
-    }
-    .brand .name{
-      display:flex; flex-direction:column; line-height:1.05; min-width:0;
-    }
-    .brand .name strong{font-size:15px; letter-spacing:.2px}
-    .brand .name span{font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+/* CONTACT */
+.contact{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+input,textarea,select{
+  width:100%;
+  padding:12px;
+  border-radius:12px;
+  border:1px solid var(--line);
+}
 
-    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center; gap:8px;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.92);
-      text-decoration:none;
-      font-weight:750;
-      transition: .2s ease;
-      white-space:nowrap;
-      color: var(--blue-800);
-    }
-    .btn:hover{transform: translateY(-1px); filter: brightness(1.02)}
-    .btn.primary{
-      background: linear-gradient(135deg, var(--yellow), var(--yellow-2));
-      color:#1b1300;
-      border-color: rgba(246,195,27,.65);
-      box-shadow: 0 12px 30px rgba(246,195,27,.22);
-    }
-    .btn.primary:hover{transform: translateY(-1px); filter:saturate(1.05)}
-    .btn.blue{
-      background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
-      color: var(--white);
-      border-color: rgba(11,31,75,.25);
-      box-shadow: 0 14px 35px rgba(11,31,75,.18);
-    }
-    .btn.blue:hover{filter: brightness(1.05)}
-    .btn.ghost{background: transparent}
+/* FOOTER */
+footer{
+  border-top:1px solid var(--line);
+  padding:20px 0;
+  font-size:12px;
+}
 
-    /* ====== BIG MAIN BANNER ====== */
-    .hero-banner{padding: 18px 0 10px;}
-    .banner{
-      position:relative;
-      border-radius: 26px;
-      overflow:hidden;
-      border:1px solid rgba(11,31,75,.18);
-      box-shadow: var(--shadow);
-      background:
-        radial-gradient(900px 380px at 15% 20%, rgba(246,195,27,.26), transparent 55%),
-        radial-gradient(900px 420px at 85% 10%, rgba(16,42,99,.25), transparent 60%),
-        linear-gradient(135deg, var(--blue-800), var(--blue-700));
-      color: var(--white);
-      min-height: 280px;
-    }
-    .banner::after{
-      content:"";
-      position:absolute; inset:0;
-      background: linear-gradient(90deg, rgba(255,255,255,.08), transparent 40%, rgba(246,195,27,.10));
-      pointer-events:none;
-    }
-    .banner-inner{
-      position:relative;
-      z-index:2;
-      padding: 26px;
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 18px;
-      align-items:center;
-    }
-    .banner-left{display:flex; align-items:center; gap:16px;}
-    .banner-logo{
-      width:96px; height:96px;
-      border-radius: 22px;
-      background: var(--white);
-      border:1px solid rgba(255,255,255,.25);
-      object-fit:cover;
-      box-shadow: 0 16px 40px rgba(0,0,0,.22);
-      flex: 0 0 auto;
-    }
-    .banner-title{
-      margin:0;
-      font-size: clamp(30px, 4vw, 48px);
-      letter-spacing:.2px;
-      line-height:1.05;
-    }
-    .banner-sub{
-      margin:10px 0 0;
-      color: rgba(255,255,255,.90);
-      font-size: 15px;
-      line-height:1.6;
-      max-width: 60ch;
-    }
-    .banner-pills{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin-top: 14px;
-    }
-    .pill{
-      background: rgba(255,255,255,.12);
-      border:1px solid rgba(255,255,255,.22);
-      color: rgba(255,255,255,.95);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 13px;
-      backdrop-filter: blur(6px);
-    }
-    .banner-right{
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:flex-start;
-      justify-content:center;
-      border:1px solid rgba(255,255,255,.18);
-      background: rgba(255,255,255,.10);
-      padding: 16px;
-      border-radius: 20px;
-      backdrop-filter: blur(8px);
-    }
-    .banner-right h2{margin:0; font-size: 18px; color: rgba(255,255,255,.95);}
-    .banner-right p{margin:0; color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.6;}
-    .banner-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px;}
-
-    /* Sections */
-    section{padding:20px 0}
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
-      margin-bottom:12px;
-    }
-    .section-title h3{margin:0; font-size:20px; color: var(--blue-800)}
-    .section-title p{margin:0; color:var(--muted); font-size:13px}
-
-    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
-    .card{
-      border:1px solid var(--line);
-      background: var(--white);
-      border-radius: var(--radius);
-      padding:16px;
-      box-shadow: 0 14px 35px rgba(7,22,51,.10);
-    }
-    .card h4{margin:0 0 6px; font-size:16px; color: var(--blue-800)}
-    .card p{margin:0; color:var(--muted); line-height:1.6; font-size:13px}
-
-    .list{display:grid; gap:10px; margin:0; padding:0; list-style:none;}
-    .list li{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px;
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: var(--white);
-      box-shadow: 0 14px 35px rgba(7,22,51,.10);
-    }
-    .check{
-      width:22px; height:22px;
-      border-radius:7px;
-      background: rgba(246,195,27,.25);
-      border:1px solid rgba(246,195,27,.60);
-      display:flex; align-items:center; justify-content:center;
-      flex:0 0 auto;
-      color: #9b6b00;
-      font-weight:900;
-    }
-    .list b{display:block; margin-bottom:2px; color: var(--blue-800)}
-    .list small{color:var(--muted); line-height:1.55}
-
-    /* FAQ */
-    details{
-      border:1px solid var(--line);
-      border-radius: 16px;
-      background: var(--white);
-      padding: 12px 14px;
-      box-shadow: 0 14px 35px rgba(7,22,51,.10);
-    }
-    details summary{
-      cursor:pointer;
-      font-weight:850;
-      list-style:none;
-      color: var(--blue-800);
-    }
-    details summary::-webkit-details-marker{display:none}
-    details p{margin:10px 0 0; color:var(--muted); line-height:1.7; font-size:13px}
-
-    /* Contact */
-    .contact{display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch;}
-    form{display:grid; gap:10px}
-    label{font-size:12px; color: rgba(11,31,75,.86)}
-    input, textarea, select{
-      width:100%;
-      padding:12px 12px;
-      border-radius: 12px;
-      border:1px solid var(--line);
-      background: var(--white);
-      color: var(--blue-800);
-      outline:none;
-      font-size:14px;
-    }
-    textarea{min-height:110px; resize:vertical}
-    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px;}
-    .hint{font-size:12px; color:var(--muted); margin-top:-4px}
-
-    footer{
-      padding:22px 0 36px;
-      color: rgba(11,31,75,.78);
-      font-size:12px;
-      border-top:1px solid var(--line);
-      margin-top: 10px;
-      background: rgba(255,255,255,.75);
-    }
-
-    /* Floating buttons */
-    .float{
-      position:fixed;
-      inset:auto 14px 14px 14px;
-      display:flex; gap:10px; justify-content:center;
-      z-index:60;
-      pointer-events:none;
-    }
-    .float a{pointer-events:auto}
-    .float .btn{box-shadow: 0 14px 45px rgba(7,22,51,.20);}
-
-    @media (max-width: 900px){
-      .actions{display:none}
-      .banner-inner{grid-template-columns: 1fr}
-      .contact{grid-template-columns: 1fr}
-      .form-row{grid-template-columns: 1fr}
-      .grid3{grid-template-columns: 1fr}
-      .banner{min-height: 320px}
-      .banner-left{align-items:flex-start}
-    }
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "נועם עבודות חשמל",
-    "telephone": "+972512715252",
-    "areaServed": "Jerusalem District",
-    "image": "logo.png",
-    "url": "",
-    "description": "שירותי חשמל: תקלות, לוחות, תאורה, תלת פאזי ועמדות טעינה לרכב חשמלי."
-  }
-  </script>
+/* FLOAT */
+.float{
+  position:fixed;
+  bottom:14px;left:14px;right:14px;
+  display:flex;gap:10px;justify-content:center;
+}
+@media(max-width:900px){
+  .banner-inner,.grid3,.contact{grid-template-columns:1fr}
+  .actions{display:none}
+}
+</style>
 </head>
 
 <body>
-  <!-- Top -->
-  <div class="top">
-    <div class="container">
-      <div class="top-inner">
-        <div class="brand">
-          <img src="logo.png" alt="לוגו נועם עבודות חשמל" />
-          <div class="name">
-            <strong>נועם עבודות חשמל</strong>
-            <span>שירות מהיר • עבודה נקייה • אחריות</span>
-          </div>
-        </div>
 
-        <div class="actions">
-          <a class="btn ghost" href="#services">שירותים</a>
-          <a class="btn ghost" href="#reviews">המלצות</a>
-          <a class="btn ghost" href="#faq">שאלות נפוצות</a>
-          <a class="btn" href="#contact">יצירת קשר</a>
-          <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
-        </div>
-      </div>
+<!-- TOP -->
+<div class="top">
+  <div class="container top-inner">
+    <div class="brand">
+      <img src="logo.png" alt="">
+      <strong>נועם עבודות חשמל</strong>
+    </div>
+    <div class="actions">
+      <a class="btn" href="#services">שירותים</a>
+      <a class="btn" href="#contact">צור קשר</a>
+      <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
     </div>
   </div>
+</div>
 
-  <!-- BIG BANNER -->
-  <section class="hero-banner" id="top">
-    <div class="container">
-      <div class="banner">
-        <div class="banner-inner">
-          <div>
-            <div class="banner-left">
-              <img class="banner-logo" src="logo.png" alt="לוגו נועם עבודות חשמל" />
-              <div>
-                <h1 class="banner-title">נועם עבודות חשמל</h1>
-                <p class="banner-sub">
-                  תקלות • לוחות • נקודות • תלת־פאזי • עמדות טעינה לרכב חשמלי<br/>
-                  שירות מסודר, אמין, ועם אחריות — ירושלים והסביבה.
-                </p>
-              </div>
-            </div>
-
-            <div class="banner-pills">
-              <span class="pill">⚡ זמינות גבוהה</span>
-              <span class="pill">✅ אחריות על העבודה</span>
-              <span class="pill">🧾 הצעת מחיר מסודרת</span>
-              <span class="pill">🚗 עמדות טעינה</span>
-            </div>
-          </div>
-
-          <div class="banner-right">
-            <h2>בוא נסגור מהר</h2>
-            <p>לחץ כדי להתקשר או לשלוח הודעה. הכי מהר זה חיוג.</p>
-            <div class="banner-cta">
-              <a class="btn primary" href="tel:+972512715252">📞 051-271-5252</a>
-              <a class="btn blue" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
-              <a class="btn" href="#contact">✍️ השאר פרטים</a>
-            </div>
-            <p style="margin-top:6px; font-size:12px; color:rgba(255,255,255,.86)">
-              טיפ: אם שולחים וואטסאפ — כתוב מיקום + מה הבעיה + תמונה של הלוח (אם רלוונטי).
-            </p>
-          </div>
-        </div>
+<!-- BANNER -->
+<header class="main-banner">
+  <div class="container banner-inner">
+    <div>
+      <h1>חשמלאי מוסמך בירושלים והסביבה</h1>
+      <p>
+        תקלות • לוחות • תלת פאזי • תאורה • עמדות טעינה  
+        שירות אמין, עבודה נקייה ומקצועית.
+      </p>
+      <div class="banner-actions">
+        <a class="btn primary" href="tel:+972512715252">📞 התקשר עכשיו</a>
+        <a class="btn" href="https://wa.me/972512715252" target="_blank">💬 וואטסאפ</a>
       </div>
     </div>
-  </section>
-  <!-- Services -->
-  <section id="services">
-    <div class="container">
-      <div class="section-title">
-        <h3>שירותים</h3>
-        <p>בקצרה ובגובה העיניים.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card">
-          <h4>תקלות חשמל וקצרים</h4>
-          <p>איתור תקלה, קפיצות פחת/מא"ז, עומסים ותיקון בטיחותי.</p>
-        </div>
-        <div class="card">
-          <h4>לוחות חשמל</h4>
-          <p>סידור וחיווט, החלפת רכיבים, הוספת מעגלים ותיעוד מסודר.</p>
-        </div>
-        <div class="card">
-          <h4>תאורה ושקעים</h4>
-          <p>נקודות, תאורת לד, ספוטים, מפסקים והתקנות מסודרות.</p>
-        </div>
-        <div class="card">
-          <h4>תלת־פאזי</h4>
-          <p>התאמות, חלוקה מאוזנת, הכנות לצרכנים כבדים.</p>
-        </div>
-        <div class="card">
-          <h4>עמדות טעינה לרכב חשמלי</h4>
-          <p>תשתית ייעודית, הגנות מתאימות ותיאום בדיקות לפי צורך.</p>
-        </div>
-        <div class="card">
-          <h4>עבודות חשמל כלליות</h4>
-          <p>שדרוגים, התקנות ותיקונים – עם סדר, איכות ואחריות.</p>
-        </div>
-      </div>
+    <div class="banner-box">
+      ✔ זמינות גבוהה<br>
+      ✔ אחריות מלאה<br>
+      ✔ מחירים הוגנים<br>
+      ✔ הסבר ברור לפני עבודה
     </div>
-  </section>
-
-  <!-- Why -->
-  <section>
-    <div class="container">
-      <div class="section-title">
-        <h3>למה לעבוד איתי</h3>
-        <p>שלושה דברים שמרגישים בשטח.</p>
-      </div>
-
-      <ul class="list">
-        <li>
-          <div class="check">✓</div>
-          <div>
-            <b>אבחון נכון לפני החלפות מיותרות</b>
-            <small>מכוון לשורש הבעיה כדי לחסוך זמן וכסף.</small>
-          </div>
-        </li>
-        <li>
-          <div class="check">✓</div>
-          <div>
-            <b>תיאום ברור ושקיפות</b>
-            <small>מה עושים, כמה זמן, ומה העלות המשוערת.</small>
-          </div>
-        </li>
-        <li>
-          <div class="check">✓</div>
-          <div>
-            <b>גימור נקי ומסודר</b>
-            <small>חיווט מסודר, לוח נקי, ותוצאה מקצועית.</small>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section id="reviews">
-    <div class="container">
-      <div class="section-title">
-        <h3>המלצות</h3>
-        <p>תוכל להחליף בהמלצות אמיתיות שלך.</p>
-      </div>
-
-      <div class="grid3">
-        <div class="card">
-          <h4>⭐⭐⭐⭐⭐</h4>
-          <p>“הגיע מהר, הסביר הכל, סידר את הלוח בצורה נקייה ומקצועית.”</p>
-        </div>
-        <div class="card">
-          <h4>⭐⭐⭐⭐⭐</h4>
-          <p>“תקלה שחזרה כמה פעמים — נועם מצא את הבעיה ופתר. שירות מצוין.”</p>
-        </div>
-        <div class="card">
-          <h4>⭐⭐⭐⭐⭐</h4>
-          <p>“התקנת עמדת טעינה ברמה גבוהה, עבודה מסודרת והכל תקין.”</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="container">
-      <div class="section-title">
-        <h3>שאלות נפוצות</h3>
-        <p>קצר ולעניין.</p>
-      </div>
-
-      <div class="list" style="gap:12px">
-        <details>
-          <summary>כמה עולה ביקור / איתור תקלה?</summary>
-          <p>זה תלוי במורכבות ובזמן האיתור. שלח תיאור קצר + מיקום + (אם אפשר) תמונה של הלוח, ואני אתן טווח לפני הגעה.</p>
-        </details>
-
-        <details>
-          <summary>אתה נותן אחריות?</summary>
-          <p>כן—על העבודה שבוצעה, ובהתאם לסוג הרכיבים/העבודה (הכל מוסבר מראש).</p>
-        </details>
-
-        <details>
-          <summary>אפשר לקבל הצעת מחיר מסודרת?</summary>
-          <p>בוודאי. אני שולח הצעה מסודרת עם פירוט עבודה/חומרים/הערות/אחריות.</p>
-        </details>
-
-        <details>
-          <summary>עמדת טעינה לרכב חשמלי—מה צריך?</summary>
-          <p>בדרך כלל תשתית ייעודית והגנות מתאימות. שלח תמונה של הלוח + מיקום העמדה, ואכוון מה נכון לעשות.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <div class="container">
-      <div class="section-title">
-        <h3>יצירת קשר</h3>
-        <p>חיוג / וואטסאפ / השארת פרטים.</p>
-      </div>
-
-      <div class="contact">
-        <div class="card">
-          <h4 style="margin:0 0 10px">פרטים מהירים</h4>
-          <p style="margin:0 0 12px; color:var(--muted); line-height:1.7">
-            טלפון:
-            <a href="tel:+972512715252" style="font-weight:900; color:var(--blue-800); text-decoration:none">051-271-5252</a><br/>
-            וואטסאפ:
-            <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:900; color:var(--blue-800); text-decoration:none">שלח הודעה</a>
-          </p>
-          <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.6">
-            כדי שאחזור מהר: מיקום + מה הבעיה + דחוף/לא דחוף + תמונה של הלוח אם רלוונטי.
-          </p>
-        </div>
-
-        <div class="card">
-          <h4 style="margin:0 0 10px">השאר פרטים (נפתח וואטסאפ עם הודעה מוכנה)</h4>
-
-          <form id="leadForm">
-            <div class="form-row">
-              <div>
-                <label for="fullName">שם מלא</label>
-                <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" required />
-              </div>
-              <div>
-                <label for="phone">טלפון</label>
-                <input id="phone" name="phone" inputmode="tel" placeholder="לדוגמה: 05X-XXXXXXX" required />
-              </div>
-            </div>
-
-            <div class="form-row">
-              <div>
-                <label for="area">אזור</label>
-                <input id="area" name="area" placeholder="לדוגמה: ירושלים / גבעת זאב" />
-              </div>
-              <div>
-                <label for="topic">נושא</label>
-                <select id="topic" name="topic">
-                  <option>תקלה / קצר</option>
-                  <option>לוח חשמל</option>
-                  <option>תאורה / נקודות</option>
-                  <option>תלת-פאזי</option>
-                  <option>עמדת טעינה לרכב חשמלי</option>
-                  <option>אחר</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label for="msg">פרטי הבקשה</label>
-              <textarea id="msg" name="msg" placeholder="תיאור קצר של הבעיה/העבודה + מתי נוח לך"></textarea>
-              <div class="hint">בלחיצה על “שלח בוואטסאפ” תיפתח הודעה מוכנה לשליחה.</div>
-            </div>
-
-            <button class="btn primary" type="submit">💬 שלח בוואטסאפ</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    <div class="container">
-      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center">
-        <div>© <span id="year"></span> נועם עבודות חשמל</div>
-        <div>טלפון: <a href="tel:+972512715252" style="color:inherit">051-271-5252</a></div>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Floating CTA -->
-  <div class="float">
-    <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
-    <a class="btn blue" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
   </div>
+</header>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <div class="section-title">
+      <h2>שירותים</h2>
+      <p>כל עבודות החשמל במקום אחד</p>
+    </div>
+    <div class="grid3">
+      <div class="card"><h3>תקלות וקצרים</h3></div>
+      <div class="card"><h3>לוחות חשמל</h3></div>
+      <div class="card"><h3>תאורה ושקעים</h3></div>
+      <div class="card"><h3>תלת פאזי</h3></div>
+      <div class="card"><h3>עמדות טעינה</h3></div>
+      <div class="card"><h3>עבודות כלליות</h3></div>
+    </div>
+  </div>
+</section>
 
-    const form = document.getElementById("leadForm");
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container contact">
+    <div class="card">
+      <h3>פרטי קשר</h3>
+      <p>
+        טלפון: <a href="tel:+972512715252">051-271-5252</a><br>
+        וואטסאפ: <a href="https://wa.me/972512715252">שלח הודעה</a>
+      </p>
+    </div>
+    <div class="card">
+      <h3>השאר פרטים</h3>
+      <input placeholder="שם מלא">
+      <input placeholder="טלפון">
+      <textarea placeholder="פרטי הבקשה"></textarea>
+      <a class="btn primary" href="https://wa.me/972512715252">שלח בוואטסאפ</a>
+    </div>
+  </div>
+</section>
 
-      const fullName = document.getElementById("fullName").value.trim();
-      const phone    = document.getElementById("phone").value.trim();
-      const area     = document.getElementById("area").value.trim();
-      const topic    = document.getElementById("topic").value;
-      const msg      = document.getElementById("msg").value.trim();
+<footer>
+  <div class="container">
+    © <span id="year"></span> נועם עבודות חשמל
+  </div>
+</footer>
 
-      const lines = [
-        "היי נועם, אשמח להצעת מחיר/תיאום 🙂",
-        `שם: ${fullName}`,
-        `טלפון: ${phone}`,
-        area ? `אזור: ${area}` : null,
-        `נושא: ${topic}`,
-        msg ? `פרטים: ${msg}` : null
-      ].filter(Boolean);
+<div class="float">
+  <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
+  <a class="btn" href="https://wa.me/972512715252">💬 וואטסאפ</a>
+</div>
 
-      const text = encodeURIComponent(lines.join("\n"));
-      const url = `https://wa.me/972512715252?text=${text}`;
-      window.open(url, "_blank", "noopener");
-    });
-  </script>
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
 </body>
 </html>
