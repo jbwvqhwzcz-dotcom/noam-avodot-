@@ -1,180 +1,664 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <title>נועם עבודות חשמל</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>נועם עבודות חשמל | חשמלאי מוסמך בירושלים והסביבה</title>
+  <meta name="description" content="נועם עבודות חשמל – שירות מהיר, מקצועי ואמין. תקלות, לוחות חשמל, נקודות, תאורה, תלת פאזי, עמדות טעינה לרכב חשמלי ועוד. חייגו עכשיו: 051-271-5252" />
+  <meta name="theme-color" content="#0b1b3a" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="נועם עבודות חשמל" />
+  <meta property="og:description" content="שירותי חשמל, לוחות, תקלות, תאורה, תלת פאזי ועמדות טעינה. זמינות גבוהה ואחריות." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:image" content="logo.png" />
+
+  <!-- Favicon (אופציונלי): שים קובץ favicon.ico ליד index.html -->
+  <link rel="icon" href="favicon.ico" />
 
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f4f6fb;
-      color: #1c1f4a;
-      line-height: 1.7;
+    :root{
+      --bg:#070d18;
+      --card:#0c1833;
+      --card2:#0b142b;
+      --text:#eaf0ff;
+      --muted:#b8c3e6;
+      --line:rgba(255,255,255,.10);
+      --accent:#f6c31b;   /* צהוב ברק */
+      --accent2:#6aa9ff;  /* כחול בהיר */
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --radius: 18px;
     }
 
-    section {
-      padding: 80px 20px;
-      text-align: center;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Hebrew", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 80% -10%, rgba(106,169,255,.25), transparent 60%),
+        radial-gradient(900px 500px at 10% 10%, rgba(246,195,27,.18), transparent 60%),
+        linear-gradient(180deg, #060b14, #040711 70%, #03050d);
+      overflow-x:hidden;
     }
 
-    h1, h2 {
-      margin-bottom: 20px;
+    a{color:inherit}
+    .container{width:min(1100px, 92vw); margin:0 auto}
+
+    /* Top bar */
+    .top{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(5,8,14,.65);
+      border-bottom:1px solid var(--line);
+    }
+    .top-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:14px; padding:12px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px; min-width:0;
+    }
+    .brand img{
+      width:46px; height:46px; border-radius:50%;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      object-fit:cover;
+    }
+    .brand .name{
+      display:flex; flex-direction:column; line-height:1.05;
+      min-width:0;
+    }
+    .brand .name strong{font-size:15px; letter-spacing:.2px}
+    .brand .name span{font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+
+    .actions{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      text-decoration:none;
+      font-weight:650;
+      transition: .2s ease;
+      white-space:nowrap;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(246,195,27,.95), rgba(246,195,27,.75));
+      color:#1b1300;
+      border-color: rgba(246,195,27,.45);
+      box-shadow: 0 10px 30px rgba(246,195,27,.18);
+    }
+    .btn.primary:hover{filter:saturate(1.05); transform: translateY(-1px)}
+    .btn.ghost{background: transparent}
+
+    /* Hero */
+    .hero{
+      padding:42px 0 18px;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:stretch;
+    }
+    .hero-card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(12,24,51,.82), rgba(9,16,35,.78));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:26px;
+      position:relative;
+      overflow:hidden;
+    }
+    .spark{
+      position:absolute; inset:-120px -120px auto auto;
+      width:320px; height:320px;
+      background: radial-gradient(circle at 30% 30%, rgba(246,195,27,.30), transparent 55%),
+                  radial-gradient(circle at 70% 60%, rgba(106,169,255,.25), transparent 55%);
+      filter: blur(2px);
+      transform: rotate(14deg);
+      pointer-events:none;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 3.5vw, 44px);
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:0 0 16px;
+      color:var(--muted);
+      font-size: clamp(14px, 1.7vw, 18px);
+      line-height:1.55;
+      max-width: 60ch;
+    }
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin: 16px 0 18px}
+    .pill{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+      font-weight:600;
+      font-size:13px;
+    }
+    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px}
+    .fine{
+      margin-top: 12px;
+      color: rgba(234,240,255,.72);
+      font-size: 12px;
+      line-height: 1.6;
     }
 
-    p {
-      max-width: 700px;
-      margin: 0 auto 20px;
-      font-size: 18px;
+    .side-card{
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, rgba(10,20,43,.85), rgba(7,13,30,.80));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex; flex-direction:column; gap:14px;
+    }
+    .badge{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+    .dot{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--accent);
+      margin-top:6px;
+      box-shadow: 0 0 0 6px rgba(246,195,27,.12);
+      flex:0 0 auto;
+    }
+    .badge strong{display:block; margin-bottom:3px}
+    .badge span{color:var(--muted); font-size:13px; line-height:1.5}
+
+    /* Sections */
+    section{padding:22px 0}
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
+      margin-bottom:12px;
+    }
+    .section-title h2{margin:0; font-size:22px}
+    .section-title p{margin:0; color:var(--muted); font-size:13px}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+    }
+    .card h3{margin:0 0 6px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.6; font-size:13px}
+
+    .list{
+      display:grid; gap:10px;
+      margin:0; padding:0; list-style:none;
+    }
+    .list li{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:12px;
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+    }
+    .check{
+      width:22px; height:22px;
+      border-radius:7px;
+      background: rgba(246,195,27,.15);
+      border:1px solid rgba(246,195,27,.35);
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+      color: var(--accent);
+      font-weight:900;
+    }
+    .list b{display:block; margin-bottom:2px}
+    .list small{color:var(--muted); line-height:1.55}
+
+    /* FAQ */
+    details{
+      border:1px solid var(--line);
+      border-radius: 14px;
+      background: rgba(255,255,255,.03);
+      padding: 12px 14px;
+    }
+    details summary{
+      cursor:pointer;
+      font-weight:750;
+      list-style:none;
+    }
+    details summary::-webkit-details-marker{display:none}
+    details p{
+      margin:10px 0 0;
+      color:var(--muted);
+      line-height:1.7;
+      font-size:13px;
     }
 
-    /* HERO */
-    .hero {
-      background: linear-gradient(rgba(28,31,74,0.9), rgba(28,31,74,0.9));
-      color: white;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+      align-items:stretch;
+    }
+    form{
+      display:grid;
+      gap:10px;
+    }
+    label{font-size:12px; color:rgba(234,240,255,.85)}
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius: 12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px; resize:vertical}
+    .form-row{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+    }
+    .hint{font-size:12px; color:var(--muted); margin-top:-4px}
+
+    /* Footer */
+    footer{
+      padding:22px 0 36px;
+      color:rgba(234,240,255,.70);
+      font-size:12px;
+      border-top:1px solid var(--line);
+      margin-top: 10px;
     }
 
-    .hero img {
-      width: 140px;
-      margin-bottom: 30px;
+    /* Floating buttons */
+    .float{
+      position:fixed;
+      inset:auto 14px 14px 14px;
+      display:flex; gap:10px; justify-content:center;
+      z-index:60;
+      pointer-events:none;
+    }
+    .float a{pointer-events:auto}
+    .float .btn{
+      box-shadow: 0 14px 45px rgba(0,0,0,.45);
     }
 
-    .hero h1 {
-      font-size: 42px;
-    }
-
-    .hero span {
-      color: #f5c400;
-    }
-
-    /* STORY */
-    .story {
-      background: white;
-    }
-
-    /* SERVICES */
-    .services {
-      background: #eef1ff;
-    }
-
-    .services ul {
-      list-style: none;
-      padding: 0;
-      max-width: 600px;
-      margin: auto;
-    }
-
-    .services li {
-      background: white;
-      margin: 10px 0;
-      padding: 15px;
-      border-radius: 10px;
-      font-size: 18px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-
-    /* TRUST */
-    .trust {
-      background: white;
-    }
-
-    /* CTA */
-    .cta {
-      background: #1c1f4a;
-      color: white;
-    }
-
-    .cta a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 15px 30px;
-      background: #f5c400;
-      color: #1c1f4a;
-      font-size: 20px;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .cta a:hover {
-      opacity: 0.9;
-    }
-
-    footer {
-      background: #111;
-      color: #aaa;
-      padding: 20px;
-      font-size: 14px;
+    /* Responsive */
+    @media (max-width: 900px){
+      .hero-grid{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      .form-row{grid-template-columns: 1fr}
+      .actions{display:none}
     }
   </style>
+
+  <!-- Structured data (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "נועם עבודות חשמל",
+    "telephone": "+972512715252",
+    "areaServed": "Jerusalem District",
+    "image": "logo.png",
+    "url": "",
+    "description": "שירותי חשמל: תקלות, לוחות, תאורה, תלת פאזי ועמדות טעינה לרכב חשמלי."
+  }
+  </script>
 </head>
 
 <body>
+  <!-- Top -->
+  <div class="top">
+    <div class="container">
+      <div class="top-inner">
+        <div class="brand">
+          <!-- החלף את logo.png בשם הקובץ של הלוגו שלך -->
+          <img src="logo.png" alt="לוגו נועם עבודות חשמל" />
+          <div class="name">
+            <strong>נועם עבודות חשמל</strong>
+            <span>זמינות גבוהה • שירות אמין • עבודה נקייה</span>
+          </div>
+        </div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <img src="logo.png" alt="נועם עבודות חשמל">
-    <h1>כשיש בעיית חשמל<br><span>צריך מישהו שאפשר לסמוך עליו</span></h1>
-    <p>נועם עבודות חשמל – זמינות, מקצועיות ושקט נפשי</p>
+        <div class="actions">
+          <a class="btn ghost" href="#services">שירותים</a>
+          <a class="btn ghost" href="#reviews">המלצות</a>
+          <a class="btn ghost" href="#faq">שאלות נפוצות</a>
+          <a class="btn" href="#contact">יצירת קשר</a>
+          <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-card">
+          <div class="spark"></div>
+          <h1>חשמלאי שמגיע מהר, מסדר כמו שצריך, ומשאיר נקי.</h1>
+          <p class="subtitle">
+            תקלות חשמל, התקנות, לוחות, תלת־פאזי, תאורה ועמדות טעינה לרכב חשמלי —
+            עם יחס אישי, שקיפות ומחירים הוגנים.
+          </p>
+
+          <div class="pill-row">
+            <div class="pill">✅ אחריות על העבודה</div>
+            <div class="pill">⚡ מומחה ללוחות ותשתיות</div>
+            <div class="pill">🚗 עמדות טעינה לרכב חשמלי</div>
+            <div class="pill">🧾 הצעת מחיר מסודרת</div>
+          </div>
+
+          <div class="cta-row">
+            <a class="btn primary" href="tel:+972512715252">📞 התקשר עכשיו: 051-271-5252</a>
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://wa.me/972512715252?text=%D7%94%D7%99%20%D7%A0%D7%95%D7%A2%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%97%D7%A9%D7%9E%D7%9C.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%93%D7%91%D7%A8%3F">
+              💬 וואטסאפ מהיר
+            </a>
+            <a class="btn ghost" href="#contact">✍️ השאר פרטים</a>
+          </div>
+
+          <div class="fine">
+            * אם זו תקלה דחופה – הכי מהר זה חיוג. אם נוח לך הודעה, תכתוב בוואטסאפ מה הבעיה + מיקום.
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <div class="badge">
+            <div class="dot"></div>
+            <div>
+              <strong>שירות באזור ירושלים והסביבה</strong>
+              <span>הגעה לפי תיאום. עבודה מסודרת, תקנית ובטיחותית.</span>
+            </div>
+          </div>
+          <div class="badge">
+            <div class="dot"></div>
+            <div>
+              <strong>שקיפות מלאה</strong>
+              <span>מסביר מה עושים לפני, שולח הצעת מחיר מסודרת, בלי הפתעות.</span>
+            </div>
+          </div>
+          <div class="badge">
+            <div class="dot"></div>
+            <div>
+              <strong>מומחיות בלוחות</strong>
+              <span>פתרון תקלות, חיווט, הרחבות, תלת־פאזי, סדר ונראות מקצועית.</span>
+            </div>
+          </div>
+          <div class="badge">
+            <div class="dot"></div>
+            <div>
+              <strong>עמדות טעינה לרכב חשמלי</strong>
+              <span>תשתית, חיווט, הגנות, פיצול מונה (לפי צורך) ותיאום בדיקות.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <div class="section-title">
+        <h2>שירותים</h2>
+        <p>בחר את מה שמתאים – ואם לא בטוח, תכתוב ואכוון אותך.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>תקלות חשמל וקצרים</h3>
+          <p>איתור תקלה, עומסים, קפיצות פחת/מא"ז, תיקון מקצועי ובטיחותי.</p>
+        </div>
+        <div class="card">
+          <h3>לוחות חשמל</h3>
+          <p>סידור לוח, החלפת רכיבים, הוספת מעגלים, הרחבות ותיעוד מסודר.</p>
+        </div>
+        <div class="card">
+          <h3>תאורה ושקעים</h3>
+          <p>נקודות חשמל, ספוטים, לד, מפסקים חכמים, תאורת חוץ ופנים.</p>
+        </div>
+        <div class="card">
+          <h3>תלת־פאזי</h3>
+          <p>הכנות לתלת־פאזי, חלוקה מאוזנת, התאמות ללוח ולצרכנים כבדים.</p>
+        </div>
+        <div class="card">
+          <h3>עמדות טעינה לרכב חשמלי</h3>
+          <p>תשתית ייעודית, הגנות מתאימות, בדיקות ותיאום לפי הצורך.</p>
+        </div>
+        <div class="card">
+          <h3>עבודות חשמל כלליות</h3>
+          <p>הוספות, שדרוגים, התקנות ותיקונים – עם עבודה נקייה ועמידה בתקנים.</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- STORY -->
-  <section class="story">
-    <h2>זה תמיד מתחיל באותו רגע</h2>
-    <p>
-      קצר פתאומי.  
-      שקע שלא עובד.  
-      לוח חשמל שעושה בעיות בדיוק בזמן הלא נכון.
-    </p>
-    <p>
-      ברגעים כאלה לא מחפשים “עוד חשמלאי” –  
-      מחפשים מישהו אמין, מקצועי, כזה שמגיע ופותח את הבעיה.
-    </p>
+  <!-- Why me -->
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <h2>למה לעבוד איתי</h2>
+        <p>דגש על איכות, סדר ואחריות.</p>
+      </div>
+
+      <ul class="list">
+        <li>
+          <div class="check">✓</div>
+          <div>
+            <b>אבחון נכון לפני החלפות מיותרות</b>
+            <small>מנסה להבין את שורש הבעיה כדי לחסוך זמן וכסף.</small>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div>
+            <b>עמידה בלוחות זמנים ותיאום מראש</b>
+            <small>תקשורת ברורה – מתי מגיעים ומה הולך לקרות.</small>
+          </div>
+        </li>
+        <li>
+          <div class="check">✓</div>
+          <div>
+            <b>גימור נקי ומסודר</b>
+            <small>הקפדה על עבודה אסתטית, חיווט מסודר ותוצאה מקצועית.</small>
+          </div>
+        </li>
+      </ul>
+    </div>
   </section>
 
-  <!-- SERVICES -->
-  <section class="services">
-    <h2>כאן נועם נכנס לתמונה ⚡</h2>
-    <ul>
-      <li>🔧 תיקון תקלות חשמל וקצרים</li>
-      <li>🔌 הוספת נקודות חשמל ותקשורת</li>
-      <li>📦 תיקון ושדרוג לוחות וארונות חשמל</li>
-      <li>🚿 תיקון דודי חשמל ובוילרים</li>
-      <li>📞 ייעוץ וליווי מקצועי</li>
-    </ul>
+  <!-- Reviews -->
+  <section id="reviews">
+    <div class="container">
+      <div class="section-title">
+        <h2>המלצות</h2>
+        <p>החלף את הטקסטים כאן בהמלצות אמיתיות שלך.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>⭐⭐⭐⭐⭐</h3>
+          <p>“הגיע מהר, הסביר הכל, סידר את הלוח בצורה נקייה ומקצועית. מומלץ!”</p>
+        </div>
+        <div class="card">
+          <h3>⭐⭐⭐⭐⭐</h3>
+          <p>“תקלה שחזרה כמה פעמים — נועם מצא את הבעיה בשורש ופתר. שירות מעולה.”</p>
+        </div>
+        <div class="card">
+          <h3>⭐⭐⭐⭐⭐</h3>
+          <p>“התקנת עמדת טעינה ברמה גבוהה, עבודה מסודרת והכל תקין. תודה!”</p>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- TRUST -->
-  <section class="trust">
-    <h2>למה לקוחות בוחרים בנו?</h2>
-    <p>
-      ✔ עבודה לפי תקן  
-      <br>✔ יחס אישי  
-      <br>✔ הגעה בזמן  
-      <br>✔ הסבר ברור בלי חפירות
-    </p>
-    <p>
-      המטרה פשוטה:  
-      שתסיים את היום עם חשמל עובד וחיוך.
-    </p>
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-title">
+        <h2>שאלות נפוצות</h2>
+        <p>מוריד התלבטויות ומעלה סגירות.</p>
+      </div>
+
+      <div class="list" style="gap:12px">
+        <details>
+          <summary>כמה עולה ביקור / איתור תקלה?</summary>
+          <p>זה תלוי בסוג התקלה, זמן האיתור ומורכבות. הכי מדויק: שלח בוואטסאפ תיאור קצר + תמונה של הלוח אם אפשר, ואני אתן טווח מחיר לפני הגעה.</p>
+        </details>
+
+        <details>
+          <summary>אתה נותן אחריות?</summary>
+          <p>כן—על העבודה שנעשתה ועל הרכיבים בהתאם לסוג העבודה (הכל מוסבר מראש).</p>
+        </details>
+
+        <details>
+          <summary>אפשר לקבל הצעת מחיר מסודרת?</summary>
+          <p>ברור. אני יכול לשלוח הצעה מסודרת (עבודה/חומרים/הערות/אחריות) בהתאם למה שצריך.</p>
+        </details>
+
+        <details>
+          <summary>עמדת טעינה לרכב חשמלי—מה צריך להכין?</summary>
+          <p>בדרך כלל צריך תשתית ייעודית, הגנות מתאימות ותיאום לפי סוג העמדה והלוח הקיים. שלח תמונה של הלוח + מיקום העמדה, ואכוון.</p>
+        </details>
+      </div>
+    </div>
   </section>
 
-  <!-- CTA -->
-  <section class="cta">
-    <h2>צריך חשמלאי עכשיו?</h2>
-    <p>לחיצה אחת ואתה מדבר עם נועם</p>
-    <a href="tel:0512715252">📞 051-271-5252</a>
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2>דבר איתי</h2>
+        <p>חיוג / וואטסאפ / השארת פרטים.</p>
+      </div>
+
+      <div class="contact">
+        <div class="card">
+          <h3 style="margin:0 0 10px">פרטים מהירים</h3>
+          <p style="margin:0 0 12px; color:var(--muted); line-height:1.7">
+            טלפון: <a href="tel:+972512715252" style="font-weight:800; color:var(--accent); text-decoration:none">051-271-5252</a><br/>
+            וואטסאפ: <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:800; color:var(--accent); text-decoration:none">שלח הודעה</a>
+          </p>
+
+          <div class="badge" style="margin-top:12px">
+            <div class="dot"></div>
+            <div>
+              <strong>טיפ כדי שאחזור מהר</strong>
+              <span>ציין: מיקום + מה הבעיה + האם זה דחוף + תמונה של הלוח (אם רלוונטי).</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 style="margin:0 0 10px">השאר פרטים (נשלח לוואטסאפ)</h3>
+
+          <form id="leadForm">
+            <div class="form-row">
+              <div>
+                <label for="fullName">שם מלא</label>
+                <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" required />
+              </div>
+              <div>
+                <label for="phone">טלפון</label>
+                <input id="phone" name="phone" inputmode="tel" placeholder="לדוגמה: 05X-XXXXXXX" required />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div>
+                <label for="area">אזור</label>
+                <input id="area" name="area" placeholder="לדוגמה: ירושלים / גבעת זאב" />
+              </div>
+              <div>
+                <label for="topic">נושא</label>
+                <select id="topic" name="topic">
+                  <option>תקלה / קצר</option>
+                  <option>לוח חשמל</option>
+                  <option>תאורה / נקודות</option>
+                  <option>תלת-פאזי</option>
+                  <option>עמדת טעינה לרכב חשמלי</option>
+                  <option>אחר</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="msg">פרטי הבקשה</label>
+              <textarea id="msg" name="msg" placeholder="תיאור קצר של הבעיה/העבודה. אם יש—ציין מתי נוח לך."></textarea>
+              <div class="hint">בלחיצה על “שלח בוואטסאפ” תיפתח לך הודעה מוכנה לשליחה.</div>
+            </div>
+
+            <button class="btn primary" type="submit">💬 שלח בוואטסאפ</button>
+          </form>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
-    © נועם עבודות חשמל | כל הזכויות שמורות
+    <div class="container">
+      <div style="display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center">
+        <div>© <span id="year"></span> נועם עבודות חשמל</div>
+        <div>טלפון: <a href="tel:+972512715252" style="color:inherit">051-271-5252</a></div>
+      </div>
+    </div>
   </footer>
 
+  <!-- Floating CTA (נוח במיוחד בנייד) -->
+  <div class="float">
+    <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
+    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
+  </div>
+
+  <script>
+    // שנה בתחתית
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // טופס -> הודעת וואטסאפ
+    const form = document.getElementById("leadForm");
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const phone    = document.getElementById("phone").value.trim();
+      const area     = document.getElementById("area").value.trim();
+      const topic    = document.getElementById("topic").value;
+      const msg      = document.getElementById("msg").value.trim();
+
+      const lines = [
+        "היי נועם, אשמח להצעת מחיר/תיאום 🙂",
+        `שם: ${fullName}`,
+        `טלפון: ${phone}`,
+        area ? `אזור: ${area}` : null,
+        `נושא: ${topic}`,
+        msg ? `פרטים: ${msg}` : null
+      ].filter(Boolean);
+
+      const text = encodeURIComponent(lines.join("\n"));
+      const url = `https://wa.me/972512715252?text=${text}`;
+      window.open(url, "_blank", "noopener");
+    });
+  </script>
 </body>
 </html>
