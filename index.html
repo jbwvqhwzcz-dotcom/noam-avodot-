@@ -4,11 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>נועם עבודות חשמל | שירות מהיר ומסודר</title>
+  <title>נועם עבודות חשמל | חשמלאי מוסמך</title>
   <meta name="description" content="נועם עבודות חשמל – תקלות, לוחות, נקודות, תאורה, תלת פאזי, עמדות טעינה. התקשרו: 051-271-5252" />
-  <meta name="theme-color" content="#f4f7ff" />
+  <meta name="theme-color" content="#0b1f4b" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="נועם עבודות חשמל" />
   <meta property="og:description" content="שירותי חשמל: תקלות, לוחות, תאורה, תלת פאזי ועמדות טעינה. זמינות גבוהה ואחריות." />
   <meta property="og:type" content="website" />
@@ -19,16 +18,22 @@
 
   <style>
     :root{
-      --bg:#f4f7ff;
-      --card:#ffffff;
-      --card2:#ffffff;
-      --text:#0b1530;
-      --muted:#41557a;
-      --line:rgba(11,21,48,.10);
+      /* צבעים: כחול / לבן / צהוב בלבד */
+      --blue-900:#071633;
+      --blue-800:#0b1f4b;
+      --blue-700:#102a63;
+      --blue-100:#eaf1ff;
 
-      --accent:#f6c31b;   /* צהוב ברק */
-      --accent2:#1f5eff;  /* כחול חד */
-      --shadow: 0 18px 45px rgba(16, 40, 90, .12);
+      --white:#ffffff;
+
+      --yellow:#f6c31b;
+      --yellow-2:#ffd75a;
+
+      --text:#0b1f4b;
+      --muted:#2e4a86;
+
+      --line: rgba(11,31,75,.14);
+      --shadow: 0 18px 45px rgba(7,22,51,.18);
       --radius: 18px;
     }
 
@@ -39,9 +44,9 @@
       font-family: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Hebrew", sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1000px 520px at 85% -10%, rgba(31,94,255,.12), transparent 60%),
-        radial-gradient(900px 520px at 15% 10%, rgba(246,195,27,.14), transparent 55%),
-        linear-gradient(180deg, #f6f9ff, #eef4ff 60%, #f7f9ff);
+        radial-gradient(1100px 520px at 85% -10%, rgba(16,42,99,.20), transparent 60%),
+        radial-gradient(900px 520px at 15% 10%, rgba(246,195,27,.18), transparent 55%),
+        linear-gradient(180deg, var(--blue-100), #ffffff 60%, var(--blue-100));
       overflow-x:hidden;
     }
 
@@ -52,7 +57,7 @@
     .top{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.82);
       border-bottom:1px solid var(--line);
     }
     .top-inner{
@@ -63,14 +68,14 @@
       display:flex; align-items:center; gap:12px; min-width:0;
     }
     .brand img{
-      width:42px; height:42px; border-radius:50%;
+      width:42px; height:42px; border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.95);
+      background: var(--white);
       object-fit:cover;
+      box-shadow: 0 10px 25px rgba(7,22,51,.12);
     }
     .brand .name{
-      display:flex; flex-direction:column; line-height:1.05;
-      min-width:0;
+      display:flex; flex-direction:column; line-height:1.05; min-width:0;
     }
     .brand .name strong{font-size:15px; letter-spacing:.2px}
     .brand .name span{font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
@@ -81,138 +86,112 @@
       padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
+      background: rgba(255,255,255,.92);
       text-decoration:none;
-      font-weight:650;
+      font-weight:750;
       transition: .2s ease;
       white-space:nowrap;
+      color: var(--blue-800);
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.95)}
+    .btn:hover{transform: translateY(-1px); filter: brightness(1.02)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(246,195,27,.98), rgba(246,195,27,.80));
+      background: linear-gradient(135deg, var(--yellow), var(--yellow-2));
       color:#1b1300;
-      border-color: rgba(246,195,27,.55);
-      box-shadow: 0 12px 30px rgba(246,195,27,.20);
+      border-color: rgba(246,195,27,.65);
+      box-shadow: 0 12px 30px rgba(246,195,27,.22);
     }
-    .btn.primary:hover{filter:saturate(1.05); transform: translateY(-1px)}
+    .btn.primary:hover{transform: translateY(-1px); filter:saturate(1.05)}
+    .btn.blue{
+      background: linear-gradient(135deg, var(--blue-800), var(--blue-700));
+      color: var(--white);
+      border-color: rgba(11,31,75,.25);
+      box-shadow: 0 14px 35px rgba(11,31,75,.18);
+    }
+    .btn.blue:hover{filter: brightness(1.05)}
     .btn.ghost{background: transparent}
 
-    /* Main Banner */
-    .main-banner{padding:18px 0 8px}
-    .banner-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.88);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
+    /* ====== BIG MAIN BANNER ====== */
+    .hero-banner{padding: 18px 0 10px;}
+    .banner{
       position:relative;
+      border-radius: 26px;
       overflow:hidden;
-    }
-    .banner-glow{
-      position:absolute; inset:-140px -140px auto auto;
-      width:360px; height:360px;
+      border:1px solid rgba(11,31,75,.18);
+      box-shadow: var(--shadow);
       background:
-        radial-gradient(circle at 30% 30%, rgba(246,195,27,.22), transparent 55%),
-        radial-gradient(circle at 70% 60%, rgba(31,94,255,.18), transparent 55%);
-      filter: blur(2px);
-      transform: rotate(10deg);
+        radial-gradient(900px 380px at 15% 20%, rgba(246,195,27,.26), transparent 55%),
+        radial-gradient(900px 420px at 85% 10%, rgba(16,42,99,.25), transparent 60%),
+        linear-gradient(135deg, var(--blue-800), var(--blue-700));
+      color: var(--white);
+      min-height: 280px;
+    }
+    .banner::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, rgba(255,255,255,.08), transparent 40%, rgba(246,195,27,.10));
       pointer-events:none;
     }
     .banner-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      flex-wrap:wrap;
-    }
-    .banner-left{
-      display:flex; align-items:center; gap:14px; min-width:0;
-    }
-    .banner-logo{
-      width:64px; height:64px; border-radius:18px;
-      border:1px solid var(--line);
-      background:#fff;
-      object-fit:cover;
-      box-shadow: 0 12px 28px rgba(16,40,90,.10);
-    }
-    .banner-text{min-width:0}
-    .banner-title{
-      margin:0;
-      font-size: clamp(22px, 3.2vw, 34px);
-      letter-spacing:.2px;
-    }
-    .banner-sub{
-      margin:6px 0 0;
-      color:var(--muted);
-      font-size: 14px;
-      line-height:1.5;
-    }
-    .banner-cta{
-      display:flex; gap:10px; flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-
-    /* Hero (shorter, less text) */
-    .hero{padding:12px 0 14px}
-    .hero-grid{
+      position:relative;
+      z-index:2;
+      padding: 26px;
       display:grid;
       grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-      align-items:stretch;
+      gap: 18px;
+      align-items:center;
     }
-    .hero-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.88);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
+    .banner-left{display:flex; align-items:center; gap:16px;}
+    .banner-logo{
+      width:96px; height:96px;
+      border-radius: 22px;
+      background: var(--white);
+      border:1px solid rgba(255,255,255,.25);
+      object-fit:cover;
+      box-shadow: 0 16px 40px rgba(0,0,0,.22);
+      flex: 0 0 auto;
     }
-    .hero-card h2{
-      margin:0 0 10px;
-      font-size: clamp(18px, 2.2vw, 24px);
+    .banner-title{
+      margin:0;
+      font-size: clamp(30px, 4vw, 48px);
+      letter-spacing:.2px;
+      line-height:1.05;
     }
-    .subtitle{
-      margin:0 0 12px;
-      color:var(--muted);
-      font-size: 14px;
+    .banner-sub{
+      margin:10px 0 0;
+      color: rgba(255,255,255,.90);
+      font-size: 15px;
       line-height:1.6;
-      max-width: 70ch;
+      max-width: 60ch;
     }
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin: 10px 0 0}
+    .banner-pills{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top: 14px;
+    }
     .pill{
-      padding:8px 12px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-      color: var(--text);
-      font-weight:650;
-      font-size:13px;
+      background: rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.22);
+      color: rgba(255,255,255,.95);
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 13px;
+      backdrop-filter: blur(6px);
     }
-
-    .side-card{
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.88);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:14px;
-      display:flex; flex-direction:column; gap:10px;
+    .banner-right{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      align-items:flex-start;
+      justify-content:center;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.10);
+      padding: 16px;
+      border-radius: 20px;
+      backdrop-filter: blur(8px);
     }
-    .badge{
-      display:flex; gap:10px; align-items:flex-start;
-      padding:12px;
-      border-radius:14px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.75);
-    }
-    .dot{
-      width:10px; height:10px; border-radius:50%;
-      background: var(--accent);
-      margin-top:6px;
-      box-shadow: 0 0 0 6px rgba(246,195,27,.16);
-      flex:0 0 auto;
-    }
-    .badge strong{display:block; margin-bottom:3px}
-    .badge span{color:var(--muted); font-size:13px; line-height:1.5}
+    .banner-right h2{margin:0; font-size: 18px; color: rgba(255,255,255,.95);}
+    .banner-right p{margin:0; color: rgba(255,255,255,.85); font-size: 13px; line-height: 1.6;}
+    .banner-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top: 6px;}
 
     /* Sections */
     section{padding:20px 0}
@@ -220,105 +199,84 @@
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
       margin-bottom:12px;
     }
-    .section-title h3{margin:0; font-size:20px}
+    .section-title h3{margin:0; font-size:20px; color: var(--blue-800)}
     .section-title p{margin:0; color:var(--muted); font-size:13px}
 
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap:14px;
-    }
+    .grid3{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
     .card{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.92);
+      background: var(--white);
       border-radius: var(--radius);
       padding:16px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 14px 35px rgba(7,22,51,.10);
     }
-    .card h4{margin:0 0 6px; font-size:16px}
+    .card h4{margin:0 0 6px; font-size:16px; color: var(--blue-800)}
     .card p{margin:0; color:var(--muted); line-height:1.6; font-size:13px}
 
-    .list{
-      display:grid; gap:10px;
-      margin:0; padding:0; list-style:none;
-    }
+    .list{display:grid; gap:10px; margin:0; padding:0; list-style:none;}
     .list li{
       display:flex; gap:10px; align-items:flex-start;
       padding:12px;
       border:1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.88);
-      box-shadow: var(--shadow);
+      border-radius: 16px;
+      background: var(--white);
+      box-shadow: 0 14px 35px rgba(7,22,51,.10);
     }
     .check{
       width:22px; height:22px;
       border-radius:7px;
-      background: rgba(246,195,27,.22);
-      border:1px solid rgba(246,195,27,.45);
+      background: rgba(246,195,27,.25);
+      border:1px solid rgba(246,195,27,.60);
       display:flex; align-items:center; justify-content:center;
       flex:0 0 auto;
       color: #9b6b00;
       font-weight:900;
     }
-    .list b{display:block; margin-bottom:2px}
+    .list b{display:block; margin-bottom:2px; color: var(--blue-800)}
     .list small{color:var(--muted); line-height:1.55}
 
     /* FAQ */
     details{
       border:1px solid var(--line);
-      border-radius: 14px;
-      background: rgba(255,255,255,.92);
+      border-radius: 16px;
+      background: var(--white);
       padding: 12px 14px;
-      box-shadow: var(--shadow);
+      box-shadow: 0 14px 35px rgba(7,22,51,.10);
     }
     details summary{
       cursor:pointer;
-      font-weight:750;
+      font-weight:850;
       list-style:none;
+      color: var(--blue-800);
     }
     details summary::-webkit-details-marker{display:none}
-    details p{
-      margin:10px 0 0;
-      color:var(--muted);
-      line-height:1.7;
-      font-size:13px;
-    }
+    details p{margin:10px 0 0; color:var(--muted); line-height:1.7; font-size:13px}
 
     /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:14px;
-      align-items:stretch;
-    }
+    .contact{display:grid; grid-template-columns: 1fr 1fr; gap:14px; align-items:stretch;}
     form{display:grid; gap:10px}
-    label{font-size:12px; color:rgba(11,21,48,.82)}
+    label{font-size:12px; color: rgba(11,31,75,.86)}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
       border-radius: 12px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.95);
-      color: var(--text);
+      background: var(--white);
+      color: var(--blue-800);
       outline:none;
       font-size:14px;
     }
     textarea{min-height:110px; resize:vertical}
-    .form-row{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:10px;
-    }
+    .form-row{display:grid; grid-template-columns: 1fr 1fr; gap:10px;}
     .hint{font-size:12px; color:var(--muted); margin-top:-4px}
 
-    /* Footer */
     footer{
       padding:22px 0 36px;
-      color:rgba(11,21,48,.72);
+      color: rgba(11,31,75,.78);
       font-size:12px;
       border-top:1px solid var(--line);
       margin-top: 10px;
-      background: rgba(255,255,255,.55);
+      background: rgba(255,255,255,.75);
     }
 
     /* Floating buttons */
@@ -330,20 +288,19 @@
       pointer-events:none;
     }
     .float a{pointer-events:auto}
-    .float .btn{
-      box-shadow: 0 14px 45px rgba(0,0,0,.18);
-    }
+    .float .btn{box-shadow: 0 14px 45px rgba(7,22,51,.20);}
 
     @media (max-width: 900px){
       .actions{display:none}
-      .hero-grid{grid-template-columns: 1fr}
-      .grid3{grid-template-columns: 1fr}
+      .banner-inner{grid-template-columns: 1fr}
       .contact{grid-template-columns: 1fr}
       .form-row{grid-template-columns: 1fr}
+      .grid3{grid-template-columns: 1fr}
+      .banner{min-height: 320px}
+      .banner-left{align-items:flex-start}
     }
   </style>
 
-  <!-- SEO structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -382,84 +339,47 @@
     </div>
   </div>
 
-  <!-- Main Banner -->
-  <section class="main-banner" id="top">
+  <!-- BIG BANNER -->
+  <section class="hero-banner" id="top">
     <div class="container">
-      <div class="banner-card">
-        <div class="banner-glow"></div>
-
+      <div class="banner">
         <div class="banner-inner">
-          <div class="banner-left">
-            <img class="banner-logo" src="logo.png" alt="לוגו נועם עבודות חשמל" />
-            <div class="banner-text">
-              <h1 class="banner-title">נועם עבודות חשמל</h1>
-              <p class="banner-sub">זרם של איכות ואמינות • ירושלים והסביבה</p>
+          <div>
+            <div class="banner-left">
+              <img class="banner-logo" src="logo.png" alt="לוגו נועם עבודות חשמל" />
+              <div>
+                <h1 class="banner-title">נועם עבודות חשמל</h1>
+                <p class="banner-sub">
+                  תקלות • לוחות • נקודות • תלת־פאזי • עמדות טעינה לרכב חשמלי<br/>
+                  שירות מסודר, אמין, ועם אחריות — ירושלים והסביבה.
+                </p>
+              </div>
+            </div>
+
+            <div class="banner-pills">
+              <span class="pill">⚡ זמינות גבוהה</span>
+              <span class="pill">✅ אחריות על העבודה</span>
+              <span class="pill">🧾 הצעת מחיר מסודרת</span>
+              <span class="pill">🚗 עמדות טעינה</span>
             </div>
           </div>
 
-          <div class="banner-cta">
-            <a class="btn primary" href="tel:+972512715252">📞 חיוג מהיר</a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://wa.me/972512715252?text=%D7%94%D7%99%20%D7%A0%D7%95%D7%A2%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A2%D7%91%D7%95%D7%93%D7%AA%20%D7%97%D7%A9%D7%9E%D7%9C.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%93%D7%91%D7%A8%3F">
-              💬 וואטסאפ
-            </a>
-            <a class="btn" href="#contact">✍️ השאר פרטים</a>
+          <div class="banner-right">
+            <h2>בוא נסגור מהר</h2>
+            <p>לחץ כדי להתקשר או לשלוח הודעה. הכי מהר זה חיוג.</p>
+            <div class="banner-cta">
+              <a class="btn primary" href="tel:+972512715252">📞 051-271-5252</a>
+              <a class="btn blue" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
+              <a class="btn" href="#contact">✍️ השאר פרטים</a>
+            </div>
+            <p style="margin-top:6px; font-size:12px; color:rgba(255,255,255,.86)">
+              טיפ: אם שולחים וואטסאפ — כתוב מיקום + מה הבעיה + תמונה של הלוח (אם רלוונטי).
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- Hero (short + clear) -->
-  <header class="hero">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-card">
-          <h2>פתרון תקלות, לוחות ותשתיות — מהר, מסודר, ובלי בלגן.</h2>
-          <p class="subtitle">
-            תאר לי בקצרה מה צריך + איפה זה, ואני אומר לך מה האפשרויות ומה הטווח — לפני שמתחילים.
-          </p>
-
-          <div class="pill-row">
-            <div class="pill">✅ אחריות על העבודה</div>
-            <div class="pill">⚡ מומחה ללוחות</div>
-            <div class="pill">🚗 עמדות טעינה</div>
-            <div class="pill">🧾 הצעת מחיר מסודרת</div>
-          </div>
-
-          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
-            <a class="btn primary" href="tel:+972512715252">📞 051-271-5252</a>
-            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 דבר איתי בוואטסאפ</a>
-          </div>
-        </div>
-
-        <aside class="side-card">
-          <div class="badge">
-            <div class="dot"></div>
-            <div>
-              <strong>שירות באזור ירושלים והסביבה</strong>
-              <span>הגעה לפי תיאום. עבודה תקנית ובטיחותית.</span>
-            </div>
-          </div>
-          <div class="badge">
-            <div class="dot"></div>
-            <div>
-              <strong>שקיפות מלאה</strong>
-              <span>מסביר לפני, מסכם, ומתקדם רק כשברור מה עושים.</span>
-            </div>
-          </div>
-          <div class="badge">
-            <div class="dot"></div>
-            <div>
-              <strong>עבודה נקייה ומסודרת</strong>
-              <span>גימור יפה, סדר בלוח, ותוצאה מקצועית.</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </header>
-
   <!-- Services -->
   <section id="services">
     <div class="container">
@@ -567,7 +487,7 @@
       <div class="list" style="gap:12px">
         <details>
           <summary>כמה עולה ביקור / איתור תקלה?</summary>
-          <p>זה תלוי במורכבות ובזמן האיתור. הכי מדויק: שלח תיאור קצר + מיקום + (אם אפשר) תמונה של הלוח, ואני אתן טווח לפני הגעה.</p>
+          <p>זה תלוי במורכבות ובזמן האיתור. שלח תיאור קצר + מיקום + (אם אפשר) תמונה של הלוח, ואני אתן טווח לפני הגעה.</p>
         </details>
 
         <details>
@@ -601,18 +521,13 @@
           <h4 style="margin:0 0 10px">פרטים מהירים</h4>
           <p style="margin:0 0 12px; color:var(--muted); line-height:1.7">
             טלפון:
-            <a href="tel:+972512715252" style="font-weight:800; color:#9b6b00; text-decoration:none">051-271-5252</a><br/>
+            <a href="tel:+972512715252" style="font-weight:900; color:var(--blue-800); text-decoration:none">051-271-5252</a><br/>
             וואטסאפ:
-            <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:800; color:#9b6b00; text-decoration:none">שלח הודעה</a>
+            <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:900; color:var(--blue-800); text-decoration:none">שלח הודעה</a>
           </p>
-
-          <div class="badge" style="margin-top:12px">
-            <div class="dot"></div>
-            <div>
-              <strong>כדי שאחזור מהר</strong>
-              <span>כתוב: מיקום + מה הבעיה + דחוף/לא דחוף + תמונה של הלוח אם רלוונטי.</span>
-            </div>
-          </div>
+          <p style="margin:0; color:var(--muted); font-size:13px; line-height:1.6">
+            כדי שאחזור מהר: מיקום + מה הבעיה + דחוף/לא דחוף + תמונה של הלוח אם רלוונטי.
+          </p>
         </div>
 
         <div class="card">
@@ -673,7 +588,7 @@
   <!-- Floating CTA -->
   <div class="float">
     <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
-    <a class="btn" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
+    <a class="btn blue" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
   </div>
 
   <script>
