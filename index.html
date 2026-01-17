@@ -4,31 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>נועם עבודות חשמל | חשמלאי מוסמך בירושלים והסביבה</title>
-  <meta name="description" content="נועם עבודות חשמל – שירות מהיר, מקצועי ואמין. תקלות, לוחות חשמל, נקודות, תאורה, תלת פאזי, עמדות טעינה לרכב חשמלי ועוד. חייגו עכשיו: 051-271-5252" />
-  <meta name="theme-color" content="#0b1b3a" />
+  <title>נועם עבודות חשמל | שירות מהיר ומסודר</title>
+  <meta name="description" content="נועם עבודות חשמל – תקלות, לוחות, נקודות, תאורה, תלת פאזי, עמדות טעינה. התקשרו: 051-271-5252" />
+  <meta name="theme-color" content="#f4f7ff" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="נועם עבודות חשמל" />
-  <meta property="og:description" content="שירותי חשמל, לוחות, תקלות, תאורה, תלת פאזי ועמדות טעינה. זמינות גבוהה ואחריות." />
+  <meta property="og:description" content="שירותי חשמל: תקלות, לוחות, תאורה, תלת פאזי ועמדות טעינה. זמינות גבוהה ואחריות." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="he_IL" />
   <meta property="og:image" content="logo.png" />
 
-  <!-- Favicon (אופציונלי): שים קובץ favicon.ico ליד index.html -->
   <link rel="icon" href="favicon.ico" />
 
   <style>
     :root{
-      --bg:#070d18;
-      --card:#0c1833;
-      --card2:#0b142b;
-      --text:#eaf0ff;
-      --muted:#b8c3e6;
-      --line:rgba(255,255,255,.10);
+      --bg:#f4f7ff;
+      --card:#ffffff;
+      --card2:#ffffff;
+      --text:#0b1530;
+      --muted:#41557a;
+      --line:rgba(11,21,48,.10);
+
       --accent:#f6c31b;   /* צהוב ברק */
-      --accent2:#6aa9ff;  /* כחול בהיר */
-      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --accent2:#1f5eff;  /* כחול חד */
+      --shadow: 0 18px 45px rgba(16, 40, 90, .12);
       --radius: 18px;
     }
 
@@ -39,9 +39,9 @@
       font-family: system-ui, -apple-system, "Segoe UI", Arial, "Noto Sans Hebrew", sans-serif;
       color:var(--text);
       background:
-        radial-gradient(1200px 600px at 80% -10%, rgba(106,169,255,.25), transparent 60%),
-        radial-gradient(900px 500px at 10% 10%, rgba(246,195,27,.18), transparent 60%),
-        linear-gradient(180deg, #060b14, #040711 70%, #03050d);
+        radial-gradient(1000px 520px at 85% -10%, rgba(31,94,255,.12), transparent 60%),
+        radial-gradient(900px 520px at 15% 10%, rgba(246,195,27,.14), transparent 55%),
+        linear-gradient(180deg, #f6f9ff, #eef4ff 60%, #f7f9ff);
       overflow-x:hidden;
     }
 
@@ -52,7 +52,7 @@
     .top{
       position:sticky; top:0; z-index:50;
       backdrop-filter: blur(10px);
-      background: rgba(5,8,14,.65);
+      background: rgba(255,255,255,.75);
       border-bottom:1px solid var(--line);
     }
     .top-inner{
@@ -63,9 +63,9 @@
       display:flex; align-items:center; gap:12px; min-width:0;
     }
     .brand img{
-      width:46px; height:46px; border-radius:50%;
+      width:42px; height:42px; border-radius:50%;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.95);
       object-fit:cover;
     }
     .brand .name{
@@ -81,112 +81,146 @@
       padding:10px 14px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.06);
+      background: rgba(255,255,255,.75);
       text-decoration:none;
       font-weight:650;
       transition: .2s ease;
       white-space:nowrap;
     }
-    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.09)}
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.95)}
     .btn.primary{
-      background: linear-gradient(135deg, rgba(246,195,27,.95), rgba(246,195,27,.75));
+      background: linear-gradient(135deg, rgba(246,195,27,.98), rgba(246,195,27,.80));
       color:#1b1300;
-      border-color: rgba(246,195,27,.45);
-      box-shadow: 0 10px 30px rgba(246,195,27,.18);
+      border-color: rgba(246,195,27,.55);
+      box-shadow: 0 12px 30px rgba(246,195,27,.20);
     }
     .btn.primary:hover{filter:saturate(1.05); transform: translateY(-1px)}
     .btn.ghost{background: transparent}
 
-    /* Hero */
-    .hero{
-      padding:42px 0 18px;
+    /* Main Banner */
+    .main-banner{padding:18px 0 8px}
+    .banner-card{
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.88);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      position:relative;
+      overflow:hidden;
     }
+    .banner-glow{
+      position:absolute; inset:-140px -140px auto auto;
+      width:360px; height:360px;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(246,195,27,.22), transparent 55%),
+        radial-gradient(circle at 70% 60%, rgba(31,94,255,.18), transparent 55%);
+      filter: blur(2px);
+      transform: rotate(10deg);
+      pointer-events:none;
+    }
+    .banner-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .banner-left{
+      display:flex; align-items:center; gap:14px; min-width:0;
+    }
+    .banner-logo{
+      width:64px; height:64px; border-radius:18px;
+      border:1px solid var(--line);
+      background:#fff;
+      object-fit:cover;
+      box-shadow: 0 12px 28px rgba(16,40,90,.10);
+    }
+    .banner-text{min-width:0}
+    .banner-title{
+      margin:0;
+      font-size: clamp(22px, 3.2vw, 34px);
+      letter-spacing:.2px;
+    }
+    .banner-sub{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size: 14px;
+      line-height:1.5;
+    }
+    .banner-cta{
+      display:flex; gap:10px; flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+
+    /* Hero (shorter, less text) */
+    .hero{padding:12px 0 14px}
     .hero-grid{
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap:22px;
+      grid-template-columns: 1.1fr .9fr;
+      gap:14px;
       align-items:stretch;
     }
     .hero-card{
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(12,24,51,.82), rgba(9,16,35,.78));
+      background: rgba(255,255,255,.88);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding:26px;
-      position:relative;
-      overflow:hidden;
+      padding:18px;
     }
-    .spark{
-      position:absolute; inset:-120px -120px auto auto;
-      width:320px; height:320px;
-      background: radial-gradient(circle at 30% 30%, rgba(246,195,27,.30), transparent 55%),
-                  radial-gradient(circle at 70% 60%, rgba(106,169,255,.25), transparent 55%);
-      filter: blur(2px);
-      transform: rotate(14deg);
-      pointer-events:none;
-    }
-    h1{
+    .hero-card h2{
       margin:0 0 10px;
-      font-size: clamp(28px, 3.5vw, 44px);
-      letter-spacing:.2px;
+      font-size: clamp(18px, 2.2vw, 24px);
     }
     .subtitle{
-      margin:0 0 16px;
+      margin:0 0 12px;
       color:var(--muted);
-      font-size: clamp(14px, 1.7vw, 18px);
-      line-height:1.55;
-      max-width: 60ch;
+      font-size: 14px;
+      line-height:1.6;
+      max-width: 70ch;
     }
-    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin: 16px 0 18px}
+    .pill-row{display:flex; flex-wrap:wrap; gap:10px; margin: 10px 0 0}
     .pill{
       padding:8px 12px;
       border-radius:999px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.05);
+      background: rgba(255,255,255,.75);
       color: var(--text);
-      font-weight:600;
+      font-weight:650;
       font-size:13px;
-    }
-    .cta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px}
-    .fine{
-      margin-top: 12px;
-      color: rgba(234,240,255,.72);
-      font-size: 12px;
-      line-height: 1.6;
     }
 
     .side-card{
       border:1px solid var(--line);
-      background: linear-gradient(180deg, rgba(10,20,43,.85), rgba(7,13,30,.80));
+      background: rgba(255,255,255,.88);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding:18px;
-      display:flex; flex-direction:column; gap:14px;
+      padding:14px;
+      display:flex; flex-direction:column; gap:10px;
     }
     .badge{
       display:flex; gap:10px; align-items:flex-start;
       padding:12px;
       border-radius:14px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.75);
     }
     .dot{
       width:10px; height:10px; border-radius:50%;
       background: var(--accent);
       margin-top:6px;
-      box-shadow: 0 0 0 6px rgba(246,195,27,.12);
+      box-shadow: 0 0 0 6px rgba(246,195,27,.16);
       flex:0 0 auto;
     }
     .badge strong{display:block; margin-bottom:3px}
     .badge span{color:var(--muted); font-size:13px; line-height:1.5}
 
     /* Sections */
-    section{padding:22px 0}
+    section{padding:20px 0}
     .section-title{
       display:flex; align-items:flex-end; justify-content:space-between; gap:14px;
       margin-bottom:12px;
     }
-    .section-title h2{margin:0; font-size:22px}
+    .section-title h3{margin:0; font-size:20px}
     .section-title p{margin:0; color:var(--muted); font-size:13px}
 
     .grid3{
@@ -196,12 +230,12 @@
     }
     .card{
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.92);
       border-radius: var(--radius);
       padding:16px;
-      box-shadow: 0 12px 35px rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
     }
-    .card h3{margin:0 0 6px; font-size:16px}
+    .card h4{margin:0 0 6px; font-size:16px}
     .card p{margin:0; color:var(--muted); line-height:1.6; font-size:13px}
 
     .list{
@@ -213,16 +247,17 @@
       padding:12px;
       border:1px solid var(--line);
       border-radius: 14px;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.88);
+      box-shadow: var(--shadow);
     }
     .check{
       width:22px; height:22px;
       border-radius:7px;
-      background: rgba(246,195,27,.15);
-      border:1px solid rgba(246,195,27,.35);
+      background: rgba(246,195,27,.22);
+      border:1px solid rgba(246,195,27,.45);
       display:flex; align-items:center; justify-content:center;
       flex:0 0 auto;
-      color: var(--accent);
+      color: #9b6b00;
       font-weight:900;
     }
     .list b{display:block; margin-bottom:2px}
@@ -232,8 +267,9 @@
     details{
       border:1px solid var(--line);
       border-radius: 14px;
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.92);
       padding: 12px 14px;
+      box-shadow: var(--shadow);
     }
     details summary{
       cursor:pointer;
@@ -255,17 +291,14 @@
       gap:14px;
       align-items:stretch;
     }
-    form{
-      display:grid;
-      gap:10px;
-    }
-    label{font-size:12px; color:rgba(234,240,255,.85)}
+    form{display:grid; gap:10px}
+    label{font-size:12px; color:rgba(11,21,48,.82)}
     input, textarea, select{
       width:100%;
       padding:12px 12px;
       border-radius: 12px;
       border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
+      background: rgba(255,255,255,.95);
       color: var(--text);
       outline:none;
       font-size:14px;
@@ -281,10 +314,11 @@
     /* Footer */
     footer{
       padding:22px 0 36px;
-      color:rgba(234,240,255,.70);
+      color:rgba(11,21,48,.72);
       font-size:12px;
       border-top:1px solid var(--line);
       margin-top: 10px;
+      background: rgba(255,255,255,.55);
     }
 
     /* Floating buttons */
@@ -297,20 +331,19 @@
     }
     .float a{pointer-events:auto}
     .float .btn{
-      box-shadow: 0 14px 45px rgba(0,0,0,.45);
+      box-shadow: 0 14px 45px rgba(0,0,0,.18);
     }
 
-    /* Responsive */
     @media (max-width: 900px){
+      .actions{display:none}
       .hero-grid{grid-template-columns: 1fr}
       .grid3{grid-template-columns: 1fr}
       .contact{grid-template-columns: 1fr}
       .form-row{grid-template-columns: 1fr}
-      .actions{display:none}
     }
   </style>
 
-  <!-- Structured data (SEO) -->
+  <!-- SEO structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -331,11 +364,10 @@
     <div class="container">
       <div class="top-inner">
         <div class="brand">
-          <!-- החלף את logo.png בשם הקובץ של הלוגו שלך -->
           <img src="logo.png" alt="לוגו נועם עבודות חשמל" />
           <div class="name">
             <strong>נועם עבודות חשמל</strong>
-            <span>זמינות גבוהה • שירות אמין • עבודה נקייה</span>
+            <span>שירות מהיר • עבודה נקייה • אחריות</span>
           </div>
         </div>
 
@@ -350,36 +382,54 @@
     </div>
   </div>
 
-  <!-- Hero -->
+  <!-- Main Banner -->
+  <section class="main-banner" id="top">
+    <div class="container">
+      <div class="banner-card">
+        <div class="banner-glow"></div>
+
+        <div class="banner-inner">
+          <div class="banner-left">
+            <img class="banner-logo" src="logo.png" alt="לוגו נועם עבודות חשמל" />
+            <div class="banner-text">
+              <h1 class="banner-title">נועם עבודות חשמל</h1>
+              <p class="banner-sub">זרם של איכות ואמינות • ירושלים והסביבה</p>
+            </div>
+          </div>
+
+          <div class="banner-cta">
+            <a class="btn primary" href="tel:+972512715252">📞 חיוג מהיר</a>
+            <a class="btn" target="_blank" rel="noopener"
+               href="https://wa.me/972512715252?text=%D7%94%D7%99%20%D7%A0%D7%95%D7%A2%D7%9D%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%AA%D7%99%D7%90%D7%95%D7%9D%20%D7%A2%D7%91%D7%95%D7%93%D7%AA%20%D7%97%D7%A9%D7%9E%D7%9C.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%93%D7%91%D7%A8%3F">
+              💬 וואטסאפ
+            </a>
+            <a class="btn" href="#contact">✍️ השאר פרטים</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hero (short + clear) -->
   <header class="hero">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-card">
-          <div class="spark"></div>
-          <h1>חשמלאי שמגיע מהר, מסדר כמו שצריך, ומשאיר נקי.</h1>
+          <h2>פתרון תקלות, לוחות ותשתיות — מהר, מסודר, ובלי בלגן.</h2>
           <p class="subtitle">
-            תקלות חשמל, התקנות, לוחות, תלת־פאזי, תאורה ועמדות טעינה לרכב חשמלי —
-            עם יחס אישי, שקיפות ומחירים הוגנים.
+            תאר לי בקצרה מה צריך + איפה זה, ואני אומר לך מה האפשרויות ומה הטווח — לפני שמתחילים.
           </p>
 
           <div class="pill-row">
             <div class="pill">✅ אחריות על העבודה</div>
-            <div class="pill">⚡ מומחה ללוחות ותשתיות</div>
-            <div class="pill">🚗 עמדות טעינה לרכב חשמלי</div>
+            <div class="pill">⚡ מומחה ללוחות</div>
+            <div class="pill">🚗 עמדות טעינה</div>
             <div class="pill">🧾 הצעת מחיר מסודרת</div>
           </div>
 
-          <div class="cta-row">
-            <a class="btn primary" href="tel:+972512715252">📞 התקשר עכשיו: 051-271-5252</a>
-            <a class="btn" target="_blank" rel="noopener"
-               href="https://wa.me/972512715252?text=%D7%94%D7%99%20%D7%A0%D7%95%D7%A2%D7%9D%2C%20%D7%90%D7%A0%D7%99%20%D7%A6%D7%A8%D7%99%D7%9A%20%D7%A2%D7%96%D7%A8%D7%94%20%D7%91%D7%A0%D7%95%D7%A9%D7%90%20%D7%97%D7%A9%D7%9E%D7%9C.%20%D7%90%D7%A4%D7%A9%D7%A8%20%D7%9C%D7%93%D7%91%D7%A8%3F">
-              💬 וואטסאפ מהיר
-            </a>
-            <a class="btn ghost" href="#contact">✍️ השאר פרטים</a>
-          </div>
-
-          <div class="fine">
-            * אם זו תקלה דחופה – הכי מהר זה חיוג. אם נוח לך הודעה, תכתוב בוואטסאפ מה הבעיה + מיקום.
+          <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap">
+            <a class="btn primary" href="tel:+972512715252">📞 051-271-5252</a>
+            <a class="btn" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 דבר איתי בוואטסאפ</a>
           </div>
         </div>
 
@@ -388,28 +438,21 @@
             <div class="dot"></div>
             <div>
               <strong>שירות באזור ירושלים והסביבה</strong>
-              <span>הגעה לפי תיאום. עבודה מסודרת, תקנית ובטיחותית.</span>
+              <span>הגעה לפי תיאום. עבודה תקנית ובטיחותית.</span>
             </div>
           </div>
           <div class="badge">
             <div class="dot"></div>
             <div>
               <strong>שקיפות מלאה</strong>
-              <span>מסביר מה עושים לפני, שולח הצעת מחיר מסודרת, בלי הפתעות.</span>
+              <span>מסביר לפני, מסכם, ומתקדם רק כשברור מה עושים.</span>
             </div>
           </div>
           <div class="badge">
             <div class="dot"></div>
             <div>
-              <strong>מומחיות בלוחות</strong>
-              <span>פתרון תקלות, חיווט, הרחבות, תלת־פאזי, סדר ונראות מקצועית.</span>
-            </div>
-          </div>
-          <div class="badge">
-            <div class="dot"></div>
-            <div>
-              <strong>עמדות טעינה לרכב חשמלי</strong>
-              <span>תשתית, חיווט, הגנות, פיצול מונה (לפי צורך) ותיאום בדיקות.</span>
+              <strong>עבודה נקייה ומסודרת</strong>
+              <span>גימור יפה, סדר בלוח, ותוצאה מקצועית.</span>
             </div>
           </div>
         </aside>
@@ -421,45 +464,45 @@
   <section id="services">
     <div class="container">
       <div class="section-title">
-        <h2>שירותים</h2>
-        <p>בחר את מה שמתאים – ואם לא בטוח, תכתוב ואכוון אותך.</p>
+        <h3>שירותים</h3>
+        <p>בקצרה ובגובה העיניים.</p>
       </div>
 
       <div class="grid3">
         <div class="card">
-          <h3>תקלות חשמל וקצרים</h3>
-          <p>איתור תקלה, עומסים, קפיצות פחת/מא"ז, תיקון מקצועי ובטיחותי.</p>
+          <h4>תקלות חשמל וקצרים</h4>
+          <p>איתור תקלה, קפיצות פחת/מא"ז, עומסים ותיקון בטיחותי.</p>
         </div>
         <div class="card">
-          <h3>לוחות חשמל</h3>
-          <p>סידור לוח, החלפת רכיבים, הוספת מעגלים, הרחבות ותיעוד מסודר.</p>
+          <h4>לוחות חשמל</h4>
+          <p>סידור וחיווט, החלפת רכיבים, הוספת מעגלים ותיעוד מסודר.</p>
         </div>
         <div class="card">
-          <h3>תאורה ושקעים</h3>
-          <p>נקודות חשמל, ספוטים, לד, מפסקים חכמים, תאורת חוץ ופנים.</p>
+          <h4>תאורה ושקעים</h4>
+          <p>נקודות, תאורת לד, ספוטים, מפסקים והתקנות מסודרות.</p>
         </div>
         <div class="card">
-          <h3>תלת־פאזי</h3>
-          <p>הכנות לתלת־פאזי, חלוקה מאוזנת, התאמות ללוח ולצרכנים כבדים.</p>
+          <h4>תלת־פאזי</h4>
+          <p>התאמות, חלוקה מאוזנת, הכנות לצרכנים כבדים.</p>
         </div>
         <div class="card">
-          <h3>עמדות טעינה לרכב חשמלי</h3>
-          <p>תשתית ייעודית, הגנות מתאימות, בדיקות ותיאום לפי הצורך.</p>
+          <h4>עמדות טעינה לרכב חשמלי</h4>
+          <p>תשתית ייעודית, הגנות מתאימות ותיאום בדיקות לפי צורך.</p>
         </div>
         <div class="card">
-          <h3>עבודות חשמל כלליות</h3>
-          <p>הוספות, שדרוגים, התקנות ותיקונים – עם עבודה נקייה ועמידה בתקנים.</p>
+          <h4>עבודות חשמל כלליות</h4>
+          <p>שדרוגים, התקנות ותיקונים – עם סדר, איכות ואחריות.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why me -->
+  <!-- Why -->
   <section>
     <div class="container">
       <div class="section-title">
-        <h2>למה לעבוד איתי</h2>
-        <p>דגש על איכות, סדר ואחריות.</p>
+        <h3>למה לעבוד איתי</h3>
+        <p>שלושה דברים שמרגישים בשטח.</p>
       </div>
 
       <ul class="list">
@@ -467,21 +510,21 @@
           <div class="check">✓</div>
           <div>
             <b>אבחון נכון לפני החלפות מיותרות</b>
-            <small>מנסה להבין את שורש הבעיה כדי לחסוך זמן וכסף.</small>
+            <small>מכוון לשורש הבעיה כדי לחסוך זמן וכסף.</small>
           </div>
         </li>
         <li>
           <div class="check">✓</div>
           <div>
-            <b>עמידה בלוחות זמנים ותיאום מראש</b>
-            <small>תקשורת ברורה – מתי מגיעים ומה הולך לקרות.</small>
+            <b>תיאום ברור ושקיפות</b>
+            <small>מה עושים, כמה זמן, ומה העלות המשוערת.</small>
           </div>
         </li>
         <li>
           <div class="check">✓</div>
           <div>
             <b>גימור נקי ומסודר</b>
-            <small>הקפדה על עבודה אסתטית, חיווט מסודר ותוצאה מקצועית.</small>
+            <small>חיווט מסודר, לוח נקי, ותוצאה מקצועית.</small>
           </div>
         </li>
       </ul>
@@ -492,22 +535,22 @@
   <section id="reviews">
     <div class="container">
       <div class="section-title">
-        <h2>המלצות</h2>
-        <p>החלף את הטקסטים כאן בהמלצות אמיתיות שלך.</p>
+        <h3>המלצות</h3>
+        <p>תוכל להחליף בהמלצות אמיתיות שלך.</p>
       </div>
 
       <div class="grid3">
         <div class="card">
-          <h3>⭐⭐⭐⭐⭐</h3>
-          <p>“הגיע מהר, הסביר הכל, סידר את הלוח בצורה נקייה ומקצועית. מומלץ!”</p>
+          <h4>⭐⭐⭐⭐⭐</h4>
+          <p>“הגיע מהר, הסביר הכל, סידר את הלוח בצורה נקייה ומקצועית.”</p>
         </div>
         <div class="card">
-          <h3>⭐⭐⭐⭐⭐</h3>
-          <p>“תקלה שחזרה כמה פעמים — נועם מצא את הבעיה בשורש ופתר. שירות מעולה.”</p>
+          <h4>⭐⭐⭐⭐⭐</h4>
+          <p>“תקלה שחזרה כמה פעמים — נועם מצא את הבעיה ופתר. שירות מצוין.”</p>
         </div>
         <div class="card">
-          <h3>⭐⭐⭐⭐⭐</h3>
-          <p>“התקנת עמדת טעינה ברמה גבוהה, עבודה מסודרת והכל תקין. תודה!”</p>
+          <h4>⭐⭐⭐⭐⭐</h4>
+          <p>“התקנת עמדת טעינה ברמה גבוהה, עבודה מסודרת והכל תקין.”</p>
         </div>
       </div>
     </div>
@@ -517,29 +560,29 @@
   <section id="faq">
     <div class="container">
       <div class="section-title">
-        <h2>שאלות נפוצות</h2>
-        <p>מוריד התלבטויות ומעלה סגירות.</p>
+        <h3>שאלות נפוצות</h3>
+        <p>קצר ולעניין.</p>
       </div>
 
       <div class="list" style="gap:12px">
         <details>
           <summary>כמה עולה ביקור / איתור תקלה?</summary>
-          <p>זה תלוי בסוג התקלה, זמן האיתור ומורכבות. הכי מדויק: שלח בוואטסאפ תיאור קצר + תמונה של הלוח אם אפשר, ואני אתן טווח מחיר לפני הגעה.</p>
+          <p>זה תלוי במורכבות ובזמן האיתור. הכי מדויק: שלח תיאור קצר + מיקום + (אם אפשר) תמונה של הלוח, ואני אתן טווח לפני הגעה.</p>
         </details>
 
         <details>
           <summary>אתה נותן אחריות?</summary>
-          <p>כן—על העבודה שנעשתה ועל הרכיבים בהתאם לסוג העבודה (הכל מוסבר מראש).</p>
+          <p>כן—על העבודה שבוצעה, ובהתאם לסוג הרכיבים/העבודה (הכל מוסבר מראש).</p>
         </details>
 
         <details>
           <summary>אפשר לקבל הצעת מחיר מסודרת?</summary>
-          <p>ברור. אני יכול לשלוח הצעה מסודרת (עבודה/חומרים/הערות/אחריות) בהתאם למה שצריך.</p>
+          <p>בוודאי. אני שולח הצעה מסודרת עם פירוט עבודה/חומרים/הערות/אחריות.</p>
         </details>
 
         <details>
-          <summary>עמדת טעינה לרכב חשמלי—מה צריך להכין?</summary>
-          <p>בדרך כלל צריך תשתית ייעודית, הגנות מתאימות ותיאום לפי סוג העמדה והלוח הקיים. שלח תמונה של הלוח + מיקום העמדה, ואכוון.</p>
+          <summary>עמדת טעינה לרכב חשמלי—מה צריך?</summary>
+          <p>בדרך כלל תשתית ייעודית והגנות מתאימות. שלח תמונה של הלוח + מיקום העמדה, ואכוון מה נכון לעשות.</p>
         </details>
       </div>
     </div>
@@ -549,29 +592,31 @@
   <section id="contact">
     <div class="container">
       <div class="section-title">
-        <h2>דבר איתי</h2>
+        <h3>יצירת קשר</h3>
         <p>חיוג / וואטסאפ / השארת פרטים.</p>
       </div>
 
       <div class="contact">
         <div class="card">
-          <h3 style="margin:0 0 10px">פרטים מהירים</h3>
+          <h4 style="margin:0 0 10px">פרטים מהירים</h4>
           <p style="margin:0 0 12px; color:var(--muted); line-height:1.7">
-            טלפון: <a href="tel:+972512715252" style="font-weight:800; color:var(--accent); text-decoration:none">051-271-5252</a><br/>
-            וואטסאפ: <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:800; color:var(--accent); text-decoration:none">שלח הודעה</a>
+            טלפון:
+            <a href="tel:+972512715252" style="font-weight:800; color:#9b6b00; text-decoration:none">051-271-5252</a><br/>
+            וואטסאפ:
+            <a target="_blank" rel="noopener" href="https://wa.me/972512715252" style="font-weight:800; color:#9b6b00; text-decoration:none">שלח הודעה</a>
           </p>
 
           <div class="badge" style="margin-top:12px">
             <div class="dot"></div>
             <div>
-              <strong>טיפ כדי שאחזור מהר</strong>
-              <span>ציין: מיקום + מה הבעיה + האם זה דחוף + תמונה של הלוח (אם רלוונטי).</span>
+              <strong>כדי שאחזור מהר</strong>
+              <span>כתוב: מיקום + מה הבעיה + דחוף/לא דחוף + תמונה של הלוח אם רלוונטי.</span>
             </div>
           </div>
         </div>
 
         <div class="card">
-          <h3 style="margin:0 0 10px">השאר פרטים (נשלח לוואטסאפ)</h3>
+          <h4 style="margin:0 0 10px">השאר פרטים (נפתח וואטסאפ עם הודעה מוכנה)</h4>
 
           <form id="leadForm">
             <div class="form-row">
@@ -605,8 +650,8 @@
 
             <div>
               <label for="msg">פרטי הבקשה</label>
-              <textarea id="msg" name="msg" placeholder="תיאור קצר של הבעיה/העבודה. אם יש—ציין מתי נוח לך."></textarea>
-              <div class="hint">בלחיצה על “שלח בוואטסאפ” תיפתח לך הודעה מוכנה לשליחה.</div>
+              <textarea id="msg" name="msg" placeholder="תיאור קצר של הבעיה/העבודה + מתי נוח לך"></textarea>
+              <div class="hint">בלחיצה על “שלח בוואטסאפ” תיפתח הודעה מוכנה לשליחה.</div>
             </div>
 
             <button class="btn primary" type="submit">💬 שלח בוואטסאפ</button>
@@ -625,17 +670,15 @@
     </div>
   </footer>
 
-  <!-- Floating CTA (נוח במיוחד בנייד) -->
+  <!-- Floating CTA -->
   <div class="float">
     <a class="btn primary" href="tel:+972512715252">📞 חיוג</a>
     <a class="btn" target="_blank" rel="noopener" href="https://wa.me/972512715252">💬 וואטסאפ</a>
   </div>
 
   <script>
-    // שנה בתחתית
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // טופס -> הודעת וואטסאפ
     const form = document.getElementById("leadForm");
     form.addEventListener("submit", (e) => {
       e.preventDefault();
