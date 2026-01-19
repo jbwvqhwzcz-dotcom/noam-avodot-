@@ -1178,6 +1178,111 @@ body.a11y-reduce-motion *{
       });
     }, {threshold: .12});
     els.forEach(el=>io.observe(el));
+ // ===== Accessibility Widget Logic =====
+const a11yToggle = document.getElementById("a11yToggle");
+const a11yPanel  = document.getElementById("a11yPanel");
+const closeA11y  = document.getElementById("closeA11y");
+
+const fontPlus = document.getElementById("fontPlus");
+const fontMinus = document.getElementById("fontMinus");
+const toggleContrast = document.getElementById("toggleContrast");
+const toggleLinks = document.getElementById("toggleLinks");
+const toggleMotion = document.getElementById("toggleMotion");
+const resetA11y = document.getElementById("resetA11y");
+
+const FONT_CLASSES = ["a11y-font-110","a11y-font-120","a11y-font-130"];
+
+function saveState(){
+  const state = {
+    fontClass: FONT_CLASSES.find(c => document.documentElement.classList.contains(c)) || "",
+    contrast: document.body.classList.contains("a11y-contrast"),
+    links: document.body.classList.contains("a11y-links"),
+    motion: document.body.classList.contains("a11y-reduce-motion")
+  };
+  localStorage.setItem("a11yState", JSON.stringify(state));
+}
+
+function loadState(){
+  try{
+    const state = JSON.parse(localStorage.getItem("a11yState") || "{}");
+    FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+    if (state.fontClass) document.documentElement.classList.add(state.fontClass);
+
+    document.body.classList.toggle("a11y-contrast", !!state.contrast);
+    document.body.classList.toggle("a11y-links", !!state.links);
+    document.body.classList.toggle("a11y-reduce-motion", !!state.motion);
+  }catch{}
+}
+
+function openA11y(){
+  if (!a11yPanel || !a11yToggle) return;
+  a11yPanel.style.display = "block";
+  a11yToggle.setAttribute("aria-expanded", "true");
+  a11yPanel.querySelector("button")?.focus();
+  saveState();
+}
+function closeA11yPanel(){
+  if (!a11yPanel || !a11yToggle) return;
+  a11yPanel.style.display = "none";
+  a11yToggle.setAttribute("aria-expanded", "false");
+  a11yToggle.focus();
+  saveState();
+}
+
+a11yToggle?.addEventListener("click", () => {
+  const open = a11yPanel?.style.display === "block";
+  open ? closeA11yPanel() : openA11y();
+});
+closeA11y?.addEventListener("click", closeA11yPanel);
+
+// ESC סוגר
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && a11yPanel?.style.display === "block") {
+    closeA11yPanel();
+  }
+});
+
+// הגדלה/הקטנה
+function currentFontIndex(){
+  return FONT_CLASSES.findIndex(c => document.documentElement.classList.contains(c));
+}
+fontPlus?.addEventListener("click", () => {
+  const idx = currentFontIndex();
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  const next = Math.min((idx < 0 ? 0 : idx + 1), FONT_CLASSES.length - 1);
+  document.documentElement.classList.add(FONT_CLASSES[next]);
+  saveState();
+});
+fontMinus?.addEventListener("click", () => {
+  const idx = currentFontIndex();
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  const next = Math.max(idx - 1, -1);
+  if (next >= 0) document.documentElement.classList.add(FONT_CLASSES[next]);
+  saveState();
+});
+
+toggleContrast?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-contrast");
+  saveState();
+});
+toggleLinks?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-links");
+  saveState();
+});
+toggleMotion?.addEventListener("click", () => {
+  document.body.classList.toggle("a11y-reduce-motion");
+  saveState();
+});
+
+resetA11y?.addEventListener("click", () => {
+  FONT_CLASSES.forEach(c => document.documentElement.classList.remove(c));
+  document.body.classList.remove("a11y-contrast","a11y-links","a11y-reduce-motion");
+  localStorage.removeItem("a11yState");
+  saveState();
+});
+
+loadState();
+
   </script>
 </body>
 </html>
