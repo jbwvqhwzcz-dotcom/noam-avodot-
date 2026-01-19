@@ -1284,5 +1284,30 @@ resetA11y?.addEventListener("click", () => {
 loadState();
 
   </script>
+<!-- כפתור הנגשה -->
+<div class="a11yFab">
+  <button id="a11yToggle" type="button" aria-expanded="false" aria-controls="a11yPanel" aria-label="פתיחת תפריט נגישות">
+    ♿ נגישות
+  </button>
+</div>
+
+<div class="a11yPanel" id="a11yPanel" role="dialog" aria-modal="false" aria-label="תפריט נגישות">
+  <h3>תפריט נגישות</h3>
+  <div class="a11yGrid">
+    <button class="a11yBtn" type="button" id="fontPlus">הגדלת טקסט</button>
+    <button class="a11yBtn" type="button" id="fontMinus">הקטנת טקסט</button>
+    <button class="a11yBtn" type="button" id="toggleContrast">ניגודיות גבוהה</button>
+    <button class="a11yBtn" type="button" id="toggleLinks">הדגשת קישורים</button>
+    <button class="a11yBtn" type="button" id="toggleMotion">עצירת אנימציות</button>
+    <button class="a11yBtn" type="button" id="resetA11y">איפוס</button>
+  </div>
+
+  <div class="a11yRow">
+    <button class="a11yBtn a11yClose" type="button" id="closeA11y">סגור</button>
+  </div>
+
+  <div class="a11yNote">האתר נגיש גם ללא התפריט. התפריט מוסיף התאמות נוחות.</div>
+</div>
+
 </body>
 </html>
