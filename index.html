@@ -477,6 +477,99 @@
       .ctaRow{justify-content:flex-start}
       .float{right:12px; bottom:12px}
     }
+ /* ===== Accessibility Widget ===== */
+.a11yFab{
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 80;
+}
+.a11yFab button{
+  display:inline-flex; 
+  align-items:center; 
+  gap:10px;
+  padding:12px 14px;
+  border-radius:999px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(5,15,34,.75);
+  backdrop-filter: blur(10px);
+  color: var(--text);
+  font-weight: 900;
+  cursor:pointer;
+  box-shadow: 0 18px 60px rgba(0,0,0,.25);
+}
+.a11yPanel{
+  position: fixed;
+  left: 16px;
+  bottom: 72px;
+  width: min(320px, calc(100vw - 32px));
+  z-index: 80;
+  border-radius: 18px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(5,15,34,.92);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  padding: 12px;
+  display:none;
+}
+.a11yPanel h3{margin:0 0 8px; font-size:14px}
+.a11yGrid{display:grid; grid-template-columns: 1fr 1fr; gap:8px}
+.a11yBtn{
+  width:100%;
+  padding:10px 10px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.06);
+  color: var(--text);
+  font-weight: 800;
+  cursor:pointer;
+}
+.a11yBtn:hover{background: rgba(255,255,255,.10)}
+.a11yRow{display:flex; gap:8px; margin-top:8px}
+.a11yClose{flex:1}
+.a11yNote{margin-top:8px; font-size:12px; color: rgba(234,240,255,.82); line-height:1.5}
+
+/* מצב ניגודיות גבוהה */
+body.a11y-contrast{
+  background:#000 !important;
+  color:#fff !important;
+}
+body.a11y-contrast .topbar,
+body.a11y-contrast .card,
+body.a11y-contrast .miniCard,
+body.a11y-contrast .svc,
+body.a11y-contrast .priceCard,
+body.a11y-contrast .review,
+body.a11y-contrast footer,
+body.a11y-contrast .a11yPanel,
+body.a11y-contrast .float a{
+  background:#000 !important;
+  border-color:#fff !important;
+}
+body.a11y-contrast .btn{
+  background:#000 !important;
+  border-color:#fff !important;
+  color:#fff !important;
+}
+body.a11y-contrast .btn.primary{
+  background:#fff !important;
+  color:#000 !important;
+}
+
+/* הגדלת טקסט */
+html.a11y-font-110{font-size:110%}
+html.a11y-font-120{font-size:120%}
+html.a11y-font-130{font-size:130%}
+
+/* הדגשת קישורים */
+body.a11y-links a{ text-decoration: underline !important; text-underline-offset: 3px; }
+
+/* עצירת אנימציות */
+body.a11y-reduce-motion *{
+  animation: none !important;
+  transition: none !important;
+}
+
   </style>
 </head>
 
