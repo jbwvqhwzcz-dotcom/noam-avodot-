@@ -1025,3 +1025,165 @@
             <span style="opacity:.9">* במקרה חירום – התקשרו.</span>
           </small>
         </div>
+
+          <!-- Floating CTA -->
+  <div class="float" aria-label="כפתורים צפים">
+    <a class="primary" href="tel:0512715252">📞 התקשר עכשיו</a>
+    <a id="waBtnFloat" href="#" rel="noopener">💬 WhatsApp</a>
+  </div>
+
+  <script>
+    // ====== SETTINGS (עדכן אם צריך) ======
+    const PHONE_DISPLAY = "051-271-5252";
+    const PHONE_PLAIN   = "0512715252"; // ללא מקפים
+    const WHATSAPP_NUMBER_INTL = "972512715252"; // ישראל: 972 + מספר בלי 0
+
+    const BUSINESS_EMAIL = "noamavodothashmal@gmail.com";
+
+    const DEFAULT_WA_MESSAGE =
+`היי נועם, אשמח להצעת מחיר 🙏
+שם:
+אזור:
+שירות:
+פרטים בקצרה:`.trim();
+
+    // ====== Mobile menu ======
+    const menuBtn = document.getElementById("menuBtn");
+    const mobilePanel = document.getElementById("mobilePanel");
+    if (menuBtn) {
+      menuBtn.addEventListener("click", () => {
+        const open = mobilePanel.style.display === "block";
+        mobilePanel.style.display = open ? "none" : "block";
+        menuBtn.setAttribute("aria-expanded", String(!open));
+        menuBtn.textContent = open ? "תפריט" : "סגור";
+      });
+    }
+
+    // Close mobile panel on link click
+    mobilePanel?.querySelectorAll("a").forEach(a => {
+      a.addEventListener("click", () => {
+        mobilePanel.style.display = "none";
+        menuBtn?.setAttribute("aria-expanded", "false");
+        if (menuBtn) menuBtn.textContent = "תפריט";
+      });
+    });
+
+    // ====== WhatsApp links ======
+    function waLink(message){
+      const txt = encodeURIComponent(message);
+      return `https://wa.me/${WHATSAPP_NUMBER_INTL}?text=${txt}`;
+    }
+
+    const waBtns = [
+      "waBtnTop","waBtnForm","waBtnPackages","waBtnFooter","waBtnFloat"
+    ].map(id => document.getElementById(id)).filter(Boolean);
+
+    waBtns.forEach(btn => btn.href = waLink(DEFAULT_WA_MESSAGE));
+
+    // ====== Email link builder (mailto) ======
+    function mailtoLink(subject, body){
+      const s = encodeURIComponent(subject || "");
+      const b = encodeURIComponent(body || "");
+      return `mailto:${BUSINESS_EMAIL}?subject=${s}&body=${b}`;
+    }
+
+    // ====== Lead form (WhatsApp submit + Email button) ======
+    const form = document.getElementById("leadForm");
+    const toast = document.getElementById("toast");
+    const emailBtn = document.getElementById("waBtnForm"); // הכפתור "שליחה במייל" (ה-id נשאר כמו אצלך)
+
+    function normalizePhone(p){
+      return String(p || "").replace(/[^\d]/g,"");
+    }
+
+    function getFormData(){
+      const name = document.getElementById("fullName")?.value?.trim() || "";
+      const phone = document.getElementById("phone")?.value?.trim() || "";
+      const service = document.getElementById("service")?.value?.trim() || "";
+      const city = document.getElementById("city")?.value?.trim() || "";
+      const msg = document.getElementById("msg")?.value?.trim() || "";
+      return { name, phone, service, city, msg };
+    }
+
+    function buildMessage({name, phone, service, city, msg}){
+      return `היי נועם, אשמח להצעת מחיר 🙏
+שם: ${name}
+טלפון: ${phone}
+אזור: ${city || "-"}
+שירות: ${service}
+פרטים: ${msg || "-"}`;
+    }
+
+    function validateBasic({name, phone, service}){
+      if (!name || !phone || !service){
+        alert("נא למלא שם, טלפון ושירות.");
+        return false;
+      }
+      const digits = normalizePhone(phone);
+      if (digits.length < 9){
+        alert("מספר הטלפון נראה קצר מדי. בדוק שוב.");
+        return false;
+      }
+      return true;
+    }
+
+    // Update email href live (so it always has the current form text)
+    function refreshEmailHref(){
+      if (!emailBtn) return;
+      const data = getFormData();
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      const body = buildMessage(data);
+      emailBtn.href = mailtoLink(subject, body);
+    }
+
+    form?.addEventListener("input", refreshEmailHref, true);
+    form?.addEventListener("change", refreshEmailHref, true);
+    refreshEmailHref();
+
+    // On email click: validate first, then open mailto
+    emailBtn?.addEventListener("click", (e) => {
+      const data = getFormData();
+      if (!validateBasic(data)){
+        e.preventDefault();
+        return;
+      }
+      // ensure latest body
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      const body = buildMessage(data);
+      emailBtn.href = mailtoLink(subject, body);
+      // allow default navigation
+    });
+
+    // WhatsApp submit (כמו שהיה אצלך)
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = getFormData();
+
+      // Basic validation
+      if (!validateBasic(data)) return;
+
+      const composed = buildMessage(data);
+
+      // Show toast
+      if (toast){
+        toast.style.display = "block";
+        setTimeout(()=> toast.style.display = "none", 6500);
+      }
+
+      // Open WhatsApp with details (אפשר לשנות לשליחה לשרת)
+      window.open(waLink(composed), "_blank", "noopener,noreferrer");
+    });
+
+    // ====== Reveal on scroll ======
+    const els = document.querySelectorAll(".reveal");
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(en=>{
+        if (en.isIntersecting) en.target.classList.add("show");
+      });
+    }, {threshold: .12});
+    els.forEach(el=>io.observe(el));
+  </script>
+</body>
+</html>
+```
