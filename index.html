@@ -1,3 +1,4 @@
+```html
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -494,9 +495,7 @@
             </li>
           </ul>
 
-          <div class="heroBtns">
-            
-          </div>
+          <div class="heroBtns"></div>
           <div class="subnote"></div>
         </div>
 
@@ -505,16 +504,15 @@
           <h3>קבלו הצעת מחיר תוך 5 דקות</h3>
           <p>השאירו פרטים ונחזור אליכם עם שאלות קצרות + הערכת מחיר. אפשר גם בוואטסאפ.</p>
 
-          <!-- אפשר להחליף ל-Formspree / מערכת לידים (שימו action) -->
           <form class="form" id="leadForm">
             <div class="grid2">
               <div class="field">
                 <label for="fullName">שם מלא</label>
-                <input id="fullName" name="fullName" placeholder=>
+                <input id="fullName" name="fullName" placeholder="לדוגמה: ישראל ישראלי" />
               </div>
               <div class="field">
                 <label for="phone">טלפון</label>
-                <input id="phone" name="phone" placeholder=>
+                <input id="phone" name="phone" placeholder="לדוגמה: 050-0000000" />
               </div>
             </div>
 
@@ -534,7 +532,7 @@
               </div>
               <div class="field">
                 <label for="city">עיר / אזור</label>
-                 <input id="city" name="city" placeholder= >
+                <input id="city" name="city" placeholder="לדוגמה: ירושלים" />
               </div>
             </div>
 
@@ -545,7 +543,7 @@
 
             <div class="formActions">
               <button class="btn primary" type="submit">שליחה בווצאפ</button>
-              <a class="btn" id="waBtnForm" href="#" rel="noopener">שליחה במייל</a>
+              <a class="btn" id="mailBtnForm" href="#" rel="noopener">שליחה במייל</a>
             </div>
 
             <div class="toast" id="toast">נשלח! אם לא קיבלתם אישור – אפשר ללחוץ על WhatsApp ולשלוח לנו.</div>
@@ -841,6 +839,7 @@
     const PHONE_DISPLAY = "051-271-5252";
     const PHONE_PLAIN   = "0512715252"; // ללא מקפים
     const WHATSAPP_NUMBER_INTL = "972512715252"; // ישראל: 972 + מספר בלי 0
+    const BUSINESS_EMAIL = "noamavodothashmal@gmail.com";
 
     const DEFAULT_WA_MESSAGE =
 `היי נועם, אשמח להצעת מחיר 🙏
@@ -877,46 +876,83 @@
     }
 
     const waBtns = [
-      "waBtnTop","waBtnForm","waBtnPackages","waBtnFooter","waBtnFloat"
+      "waBtnTop","waBtnPackages","waBtnFooter","waBtnFloat"
     ].map(id => document.getElementById(id)).filter(Boolean);
 
     waBtns.forEach(btn => btn.href = waLink(DEFAULT_WA_MESSAGE));
 
-    // ====== Lead form (demo: opens WhatsApp with filled details) ======
+    // ====== Email link builder (mailto) ======
+    function mailtoLink(subject, body){
+      const s = encodeURIComponent(subject || "");
+      const b = encodeURIComponent(body || "");
+      return `mailto:${BUSINESS_EMAIL}?subject=${s}&body=${b}`;
+    }
+
+    // ====== Lead form ======
     const form = document.getElementById("leadForm");
     const toast = document.getElementById("toast");
+    const mailBtn = document.getElementById("mailBtnForm");
+    const waBtnForm = document.getElementById("waBtnForm"); // exists in HTML but is submit in your original
+    // Note: waBtnForm in HTML is the submit button; WhatsApp is opened on submit.
 
     function normalizePhone(p){
       return String(p || "").replace(/[^\d]/g,"");
     }
 
-    form?.addEventListener("submit", (e) => {
-      e.preventDefault();
-
+    function collectFormData(){
       const name = document.getElementById("fullName")?.value?.trim() || "";
       const phone = document.getElementById("phone")?.value?.trim() || "";
       const service = document.getElementById("service")?.value?.trim() || "";
       const city = document.getElementById("city")?.value?.trim() || "";
       const msg = document.getElementById("msg")?.value?.trim() || "";
+      return { name, phone, service, city, msg };
+    }
 
-      // Basic validation
+    function validateBasic({name, phone, service}){
       if (!name || !phone || !service){
         alert("נא למלא שם, טלפון ושירות.");
-        return;
+        return false;
       }
       const digits = normalizePhone(phone);
       if (digits.length < 9){
         alert("מספר הטלפון נראה קצר מדי. בדוק שוב.");
-        return;
+        return false;
       }
+      return true;
+    }
 
-      const composed =
-`היי נועם, אשמח להצעת מחיר 🙏
+    function buildComposedText({name, phone, service, city, msg}){
+      return `היי נועם, אשמח להצעת מחיר 🙏
 שם: ${name}
 טלפון: ${phone}
 אזור: ${city || "-"}
 שירות: ${service}
 פרטים: ${msg || "-"}`;
+    }
+
+    // Make the "שליחה במייל" button always reflect current form content
+    function updateMailButton(){
+      if (!mailBtn) return;
+      const data = collectFormData();
+      const body = buildComposedText(data);
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      mailBtn.href = mailtoLink(subject, body);
+    }
+
+    ["input","change"].forEach(evt => {
+      form?.addEventListener(evt, updateMailButton, true);
+    });
+    updateMailButton();
+
+    // WhatsApp submit (same as before)
+    form?.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const data = collectFormData();
+
+      if (!validateBasic(data)) return;
+
+      const composed = buildComposedText(data);
 
       // Show toast
       if (toast){
@@ -924,8 +960,22 @@
         setTimeout(()=> toast.style.display = "none", 6500);
       }
 
-      // Open WhatsApp with details (אפשר לשנות לשליחה לשרת)
+      // Open WhatsApp with details
       window.open(waLink(composed), "_blank", "noopener,noreferrer");
+    });
+
+    // Email click: validate like WhatsApp, then open mail client
+    mailBtn?.addEventListener("click", (e) => {
+      const data = collectFormData();
+      if (!validateBasic(data)){
+        e.preventDefault();
+        return;
+      }
+      // ensure latest text
+      const composed = buildComposedText(data);
+      const subject = "פנייה מהאתר – בקשה להצעת מחיר";
+      mailBtn.href = mailtoLink(subject, composed);
+      // allow default navigation to mailto
     });
 
     // ====== Reveal on scroll ======
@@ -939,3 +989,4 @@
   </script>
 </body>
 </html>
+```
